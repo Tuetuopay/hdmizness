@@ -5,4 +5,9 @@ D 24 bit RGB to HDMI 1.4a transmitter
 F ${KIPRJMOD}/../../documentation/TDA19988.pdf
 $ENDCMP
 #
+$CMP TS3DV20812
+D 2Gbps differential switch, 1:2 multiplexer/demlutiplexer with 3 side-band signals
+F ${KIPRJMOD}/../../documentation/TS3DV20812.pdf
+$ENDCMP
+#
 #End Doc Library
