@@ -1,5 +1,9 @@
 EESchema-DOCLIB  Version 2.0
 #
+$CMP LicheeNano
+F ${KIPRJMOD}/../../documentation/lichee_nano_8.16_schematic.pdf
+$ENDCMP
+#
 $CMP LicheePiNano_LCD
 D Lichee Pi Nano LCD Flat-Flex Connector
 K connector
