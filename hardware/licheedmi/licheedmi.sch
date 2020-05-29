@@ -962,8 +962,6 @@ F 3 "~" H 13800 6700 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 Wire Wire Line
-	13700 6800 13700 7000
-Wire Wire Line
 	13800 6800 13800 7100
 Wire Wire Line
 	13700 6600 13700 6550
@@ -2024,11 +2022,9 @@ Wire Wire Line
 Wire Wire Line
 	11750 3300 11750 3200
 Wire Notes Line
-	12950 5000 13200 5000
+	12850 5000 13100 5000
 Wire Notes Line
-	13200 5000 13200 3850
-Wire Notes Line
-	13200 3850 13400 3850
+	13100 5000 13100 3850
 Wire Notes Line
 	13000 5700 13200 5700
 Wire Notes Line
@@ -2084,73 +2080,22 @@ Wire Notes Line
 Wire Notes Line
 	12350 7400 12350 7850
 Text Label 14000 7400 0    50   ~ 0
-HPD_B
+HPD_FEM
 Wire Wire Line
 	14000 7400 14500 7400
 Text Label 14000 4500 0    50   ~ 0
-HPD_A
+HPD_PCB
 Wire Wire Line
 	14000 4500 14500 4500
-Text Label 10900 8000 2    50   ~ 0
-HPD_A
 Connection ~ 10450 5550
 Wire Wire Line
 	10450 5550 10200 5550
 Text Label 10200 5550 0    50   ~ 0
 OUT_SEL
-Text Label 10050 8000 0    50   ~ 0
-OUT_SEL
-Wire Wire Line
-	10050 8000 10900 8000
-$Comp
-L Device:R_Small R?
-U 1 1 61201D62
-P 10450 8200
-F 0 "R?" V 10550 8300 50  0000 C CNN
-F 1 "1k" V 10550 8150 50  0000 C CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" H 10450 8200 50  0001 C CNN
-F 3 "~" H 10450 8200 50  0001 C CNN
-	1    10450 8200
-	0    1    -1   0   
-$EndComp
-$Comp
-L Device:R_Small R?
-U 1 1 61201D68
-P 10450 8300
-F 0 "R?" V 10350 8400 50  0000 C CNN
-F 1 "1k" V 10350 8250 50  0000 C CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" H 10450 8300 50  0001 C CNN
-F 3 "~" H 10450 8300 50  0001 C CNN
-	1    10450 8300
-	0    1    -1   0   
-$EndComp
-Wire Wire Line
-	10350 8200 10300 8200
-Wire Wire Line
-	10300 8200 10300 8250
-Wire Wire Line
-	10300 8300 10350 8300
-Connection ~ 10300 8250
-Wire Wire Line
-	10300 8250 10300 8300
-Wire Wire Line
-	10550 8200 10900 8200
-Wire Wire Line
-	10900 8300 10550 8300
-Wire Wire Line
-	10300 8250 10050 8250
-Text Label 10900 8200 2    50   ~ 0
-HPD_A
-Text Label 10900 8300 2    50   ~ 0
-HPD_B
 Wire Wire Line
 	9300 5400 9600 5400
 Text Label 9600 5400 2    50   ~ 0
 HPD
-Text Label 10050 8250 0    50   ~ 0
-HPD
-Text Notes 11200 8600 0    50   ~ 0
-<-- Let me explain this monstruosity.\nHPD of the TDA19988 has a V_IH of 2V. Even\nwith the barely-in-spec HPD voltage of 4.8v,\nany of HPD_A or B getting there would raise\nHPD to 2.4v, making it a logic one in the chip's\neyes, effectively making an OR out of resistors.\n(Yeah too lazy to look for the proper 74 part)
 $Comp
 L Device:LED_Small D?
 U 1 1 613C01A5
@@ -2184,4 +2129,355 @@ F 3 "~" V 4700 3200 50  0001 C CNN
 	1    4700 3200
 	0    -1   -1   0   
 $EndComp
+$Comp
+L Connector_Generic:Conn_01x07 J?
+U 1 1 613C8FAC
+P 1500 1350
+F 0 "J?" H 1418 825 50  0000 C CNN
+F 1 "Conn_01x07" H 1418 916 50  0000 C CNN
+F 2 "" H 1500 1350 50  0001 C CNN
+F 3 "~" H 1500 1350 50  0001 C CNN
+	1    1500 1350
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	1700 1650 1800 1650
+Wire Wire Line
+	1800 1650 1800 1750
+$Comp
+L power:GND #PWR?
+U 1 1 613FBAB0
+P 1800 1750
+F 0 "#PWR?" H 1800 1500 50  0001 C CNN
+F 1 "GND" H 1805 1577 50  0000 C CNN
+F 2 "" H 1800 1750 50  0001 C CNN
+F 3 "" H 1800 1750 50  0001 C CNN
+	1    1800 1750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1700 1550 2300 1550
+Text Label 2300 1550 2    50   ~ 0
+TX0
+Wire Wire Line
+	1700 1450 2300 1450
+Text Label 2300 1450 2    50   ~ 0
+RX0
+Wire Wire Line
+	1700 1350 2300 1350
+Text Label 2300 1350 2    50   ~ 0
+TX1
+Wire Wire Line
+	1700 1250 2300 1250
+Text Label 2300 1250 2    50   ~ 0
+RX1
+Wire Wire Line
+	1700 1150 2300 1150
+Text Label 2300 1150 2    50   ~ 0
+TX2
+Wire Wire Line
+	1700 1050 2300 1050
+Text Label 2300 1050 2    50   ~ 0
+RX2
+$Comp
+L Connector:TestPoint TP?
+U 1 1 6155DC0C
+P 5600 8050
+F 0 "TP?" V 5554 8238 50  0000 L CNN
+F 1 "VDDC" V 5645 8238 50  0000 L CNN
+F 2 "" H 5800 8050 50  0001 C CNN
+F 3 "~" H 5800 8050 50  0001 C CNN
+	1    5600 8050
+	0    1    1    0   
+$EndComp
+$Comp
+L Connector:TestPoint TP?
+U 1 1 615688A4
+P 5250 8900
+F 0 "TP?" V 5204 9088 50  0000 L CNN
+F 1 "VDDATX" V 5295 9088 50  0000 L CNN
+F 2 "" H 5450 8900 50  0001 C CNN
+F 3 "~" H 5450 8900 50  0001 C CNN
+	1    5250 8900
+	0    1    1    0   
+$EndComp
+$Comp
+L Connector:TestPoint TP?
+U 1 1 61568FAC
+P 5050 9750
+F 0 "TP?" V 5004 9938 50  0000 L CNN
+F 1 "VDDAPLL" V 5095 9938 50  0000 L CNN
+F 2 "" H 5250 9750 50  0001 C CNN
+F 3 "~" H 5250 9750 50  0001 C CNN
+	1    5050 9750
+	0    1    1    0   
+$EndComp
+$Comp
+L Connector:TestPoint TP?
+U 1 1 615696EE
+P 2750 8800
+F 0 "TP?" V 2704 8988 50  0000 L CNN
+F 1 "+1V8" V 2795 8988 50  0000 L CNN
+F 2 "" H 2950 8800 50  0001 C CNN
+F 3 "~" H 2950 8800 50  0001 C CNN
+	1    2750 8800
+	0    1    1    0   
+$EndComp
+$Comp
+L Connector:TestPoint TP?
+U 1 1 6157085B
+P 14650 1050
+F 0 "TP?" V 14696 1237 50  0001 L CNN
+F 1 "SDA_PCB" V 14650 1250 50  0000 L CNN
+F 2 "" H 14850 1050 50  0001 C CNN
+F 3 "~" H 14850 1050 50  0001 C CNN
+	1    14650 1050
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Connector:TestPoint TP?
+U 1 1 6156AD8F
+P 14650 950
+F 0 "TP?" V 14696 1137 50  0001 L CNN
+F 1 "SCL_PCB" V 14650 1150 50  0000 L CNN
+F 2 "" H 14850 950 50  0001 C CNN
+F 3 "~" H 14850 950 50  0001 C CNN
+	1    14650 950 
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Connector:TestPoint TP?
+U 1 1 615A6581
+P 14650 1150
+F 0 "TP?" V 14696 1337 50  0001 L CNN
+F 1 "HPD_PCB" V 14650 1350 50  0000 L CNN
+F 2 "" H 14850 1150 50  0001 C CNN
+F 3 "~" H 14850 1150 50  0001 C CNN
+	1    14650 1150
+	0    -1   -1   0   
+$EndComp
+Wire Notes Line
+	13100 3850 13400 3850
+$Comp
+L Connector:TestPoint TP?
+U 1 1 6163F45D
+P 14650 1350
+F 0 "TP?" V 14696 1537 50  0001 L CNN
+F 1 "SCL_FEM" V 14650 1550 50  0000 L CNN
+F 2 "" H 14850 1350 50  0001 C CNN
+F 3 "~" H 14850 1350 50  0001 C CNN
+	1    14650 1350
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Connector:TestPoint TP?
+U 1 1 6163F457
+P 14650 1450
+F 0 "TP?" V 14696 1637 50  0001 L CNN
+F 1 "SDA_FEM" V 14650 1650 50  0000 L CNN
+F 2 "" H 14850 1450 50  0001 C CNN
+F 3 "~" H 14850 1450 50  0001 C CNN
+	1    14650 1450
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Connector:TestPoint TP?
+U 1 1 6170B1FB
+P 14650 1550
+F 0 "TP?" V 14696 1737 50  0001 L CNN
+F 1 "HPD_FEM" V 14650 1750 50  0000 L CNN
+F 2 "" H 14850 1550 50  0001 C CNN
+F 3 "~" H 14850 1550 50  0001 C CNN
+	1    14650 1550
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Connector:TestPoint TP?
+U 1 1 61740187
+P 14650 850
+F 0 "TP?" V 14696 1037 50  0001 L CNN
+F 1 "CEC_PCB" V 14650 1050 50  0000 L CNN
+F 2 "" H 14850 850 50  0001 C CNN
+F 3 "~" H 14850 850 50  0001 C CNN
+	1    14650 850 
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Connector:TestPoint TP?
+U 1 1 61772F2E
+P 14650 1250
+F 0 "TP?" V 14696 1437 50  0001 L CNN
+F 1 "CEC_FEM" V 14650 1450 50  0000 L CNN
+F 2 "" H 14850 1250 50  0001 C CNN
+F 3 "~" H 14850 1250 50  0001 C CNN
+	1    14650 1250
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	13700 6800 13700 7000
+Text Label 15150 850  2    50   ~ 0
+HDCEC_PCB
+Wire Wire Line
+	15150 850  14650 850 
+Text Label 15150 1050 2    50   ~ 0
+HDSDA_PCB
+Text Label 15150 950  2    50   ~ 0
+HDSCL_PCB
+Wire Wire Line
+	15150 950  14650 950 
+Wire Wire Line
+	15150 1050 14650 1050
+Text Label 15150 1150 2    50   ~ 0
+HPD_A
+Wire Wire Line
+	15150 1150 14650 1150
+Text Label 15150 1250 2    50   ~ 0
+HDCEC_FEM
+Wire Wire Line
+	15150 1250 14650 1250
+Text Label 15150 1450 2    50   ~ 0
+HDSDA_FEM
+Text Label 15150 1350 2    50   ~ 0
+HDSCL_FEM
+Wire Wire Line
+	15150 1350 14650 1350
+Wire Wire Line
+	15150 1450 14650 1450
+Text Label 15150 1550 2    50   ~ 0
+HPD_B
+Wire Wire Line
+	15150 1550 14650 1550
+Wire Wire Line
+	14650 1650 15150 1650
+Text Label 15150 1650 2    50   ~ 0
+HPD
+$Comp
+L Connector:TestPoint TP?
+U 1 1 61AB4CB2
+P 14650 1650
+F 0 "TP?" V 14696 1837 50  0001 L CNN
+F 1 "HPD" V 14650 1850 50  0000 L CNN
+F 2 "" H 14850 1650 50  0001 C CNN
+F 3 "~" H 14850 1650 50  0001 C CNN
+	1    14650 1650
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Connector:TestPoint TP?
+U 1 1 61B1F80E
+P 14650 1850
+F 0 "TP?" V 14696 2037 50  0001 L CNN
+F 1 "SDA" V 14650 2050 50  0000 L CNN
+F 2 "" H 14850 1850 50  0001 C CNN
+F 3 "~" H 14850 1850 50  0001 C CNN
+	1    14650 1850
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Connector:TestPoint TP?
+U 1 1 61B1F814
+P 14650 1750
+F 0 "TP?" V 14696 1937 50  0001 L CNN
+F 1 "SCL" V 14650 1950 50  0000 L CNN
+F 2 "" H 14850 1750 50  0001 C CNN
+F 3 "~" H 14850 1750 50  0001 C CNN
+	1    14650 1750
+	0    -1   -1   0   
+$EndComp
+Text Label 15150 1850 2    50   ~ 0
+CPU_SDA
+Text Label 15150 1750 2    50   ~ 0
+CPU_SCL
+Wire Wire Line
+	15150 1750 14650 1750
+Wire Wire Line
+	15150 1850 14650 1850
+Text Notes 11200 8950 0    50   ~ 0
+<-- Let me explain this monstruosity.\nHPD of the TDA19988 has a V_IH of 2V. Even\nwith the barely-in-spec HPD voltage of 4.8v,\nany of HPD_A or B getting there would raise\nHPD to 2.4v, making it a logic one in the chip's\neyes, effectively making an OR out of resistors.\n(Yeah too lazy to look for the proper 74 part)
+Text Label 9900 8500 0    50   ~ 0
+HPD
+Text Label 11000 8550 2    50   ~ 0
+HPD_FEM
+Text Label 11000 8450 2    50   ~ 0
+HPD_PCB
+Wire Wire Line
+	10300 8500 9900 8500
+Wire Wire Line
+	11000 8550 10550 8550
+Wire Wire Line
+	10550 8450 11000 8450
+Wire Wire Line
+	10300 8500 10300 8550
+Connection ~ 10300 8500
+Wire Wire Line
+	10300 8550 10350 8550
+Wire Wire Line
+	10300 8450 10300 8500
+Wire Wire Line
+	10350 8450 10300 8450
+$Comp
+L Device:R_Small R?
+U 1 1 61201D68
+P 10450 8550
+F 0 "R?" V 10350 8650 50  0000 C CNN
+F 1 "1k" V 10350 8500 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" H 10450 8550 50  0001 C CNN
+F 3 "~" H 10450 8550 50  0001 C CNN
+	1    10450 8550
+	0    1    -1   0   
+$EndComp
+$Comp
+L Device:R_Small R?
+U 1 1 61201D62
+P 10450 8450
+F 0 "R?" V 10550 8550 50  0000 C CNN
+F 1 "1k" V 10550 8400 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" H 10450 8450 50  0001 C CNN
+F 3 "~" H 10450 8450 50  0001 C CNN
+	1    10450 8450
+	0    1    -1   0   
+$EndComp
+Text Label 9900 8100 0    50   ~ 0
+OUT_SEL
+Text Label 11000 8150 2    50   ~ 0
+HPD_FEM
+$Comp
+L Device:R_Small R?
+U 1 1 61C29718
+P 10450 8150
+F 0 "R?" V 10550 8250 50  0000 C CNN
+F 1 "0" V 10550 8100 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" H 10450 8150 50  0001 C CNN
+F 3 "~" H 10450 8150 50  0001 C CNN
+	1    10450 8150
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	9900 8100 10300 8100
+Wire Wire Line
+	10550 8150 11000 8150
+$Comp
+L Device:R_Small R?
+U 1 1 61D66D0B
+P 10450 8050
+F 0 "R?" V 10550 8150 50  0000 C CNN
+F 1 "DNP" V 10550 7950 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" H 10450 8050 50  0001 C CNN
+F 3 "~" H 10450 8050 50  0001 C CNN
+	1    10450 8050
+	0    1    -1   0   
+$EndComp
+Wire Wire Line
+	10350 8050 10300 8050
+Wire Wire Line
+	10300 8050 10300 8100
+Wire Wire Line
+	10300 8150 10350 8150
+Wire Wire Line
+	10550 8050 11000 8050
+Text Label 11000 8050 2    50   ~ 0
+HPD_PCB
+Connection ~ 10300 8100
+Wire Wire Line
+	10300 8100 10300 8150
 $EndSCHEMATC
