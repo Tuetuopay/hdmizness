@@ -419,10 +419,8 @@ F 3 "~" H 9550 2850 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	10550 5550 10200 5550
-Text Label 10200 5550 0    50   ~ 0
-OUT_SEL
-Text Notes 9850 6100 0    50   ~ 0
+	10550 5550 10450 5550
+Text Notes 9250 6150 0    50   ~ 0
 TODO:\nEither wire SEL to\nGPIO, or do auto\nswitch when cable\nis plugged in real\njack
 Wire Wire Line
 	14700 4900 14700 4950
@@ -2078,4 +2076,112 @@ Wire Notes Line
 	13350 6450 13400 6400
 Wire Notes Line
 	13400 6400 13350 6350
+$Comp
+L Device:R_Small R?
+U 1 1 60F47BFD
+P 10450 5750
+F 0 "R?" H 10509 5704 50  0000 L CNN
+F 1 "10k" H 10509 5795 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" H 10450 5750 50  0001 C CNN
+F 3 "~" H 10450 5750 50  0001 C CNN
+	1    10450 5750
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	10450 5650 10450 5550
+$Comp
+L power:GND #PWR?
+U 1 1 60F76D01
+P 10450 6650
+F 0 "#PWR?" H 10450 6400 50  0001 C CNN
+F 1 "GND" H 10455 6477 50  0000 C CNN
+F 2 "" H 10450 6650 50  0001 C CNN
+F 3 "" H 10450 6650 50  0001 C CNN
+	1    10450 6650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	10450 6650 10450 5850
+Text Notes 10050 7850 0    50   ~ 0
+We want port B to take precedence on\nport A when it is plugged, including on\nthe HPD pin. Given the following truth\ntable, we deduce:\n- SEL = HPD_B\n- HPD = HPD_A + HPD_B
+Text Notes 11750 7850 0    50   ~ 0
+HDP_A\n\n0\n0\n1\n1
+Text Notes 12050 7850 0    50   ~ 0
+HDP_B\n\n0\n1\n0\n1
+Text Notes 12400 7850 0    50   ~ 0
+SEL\n\n0\n1\n0\n1
+Text Notes 12600 7850 0    50   ~ 0
+HPD\n\n0\n1\n1\n1
+Wire Notes Line
+	11750 7475 12750 7475
+Wire Notes Line
+	12350 7400 12350 7850
+Text Label 14000 7400 0    50   ~ 0
+HPD_B
+Wire Wire Line
+	14000 7400 14500 7400
+Text Label 14000 4500 0    50   ~ 0
+HPD_A
+Wire Wire Line
+	14000 4500 14500 4500
+Text Label 10900 8000 2    50   ~ 0
+HPD_A
+Connection ~ 10450 5550
+Wire Wire Line
+	10450 5550 10200 5550
+Text Label 10200 5550 0    50   ~ 0
+OUT_SEL
+Text Label 10050 8000 0    50   ~ 0
+OUT_SEL
+Wire Wire Line
+	10050 8000 10900 8000
+$Comp
+L Device:R_Small R?
+U 1 1 61201D62
+P 10450 8200
+F 0 "R?" V 10550 8300 50  0000 C CNN
+F 1 "1k" V 10550 8150 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" H 10450 8200 50  0001 C CNN
+F 3 "~" H 10450 8200 50  0001 C CNN
+	1    10450 8200
+	0    1    -1   0   
+$EndComp
+$Comp
+L Device:R_Small R?
+U 1 1 61201D68
+P 10450 8300
+F 0 "R?" V 10350 8400 50  0000 C CNN
+F 1 "1k" V 10350 8250 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" H 10450 8300 50  0001 C CNN
+F 3 "~" H 10450 8300 50  0001 C CNN
+	1    10450 8300
+	0    1    -1   0   
+$EndComp
+Wire Wire Line
+	10350 8200 10300 8200
+Wire Wire Line
+	10300 8200 10300 8250
+Wire Wire Line
+	10300 8300 10350 8300
+Connection ~ 10300 8250
+Wire Wire Line
+	10300 8250 10300 8300
+Wire Wire Line
+	10550 8200 10900 8200
+Wire Wire Line
+	10900 8300 10550 8300
+Wire Wire Line
+	10300 8250 10050 8250
+Text Label 10900 8200 2    50   ~ 0
+HPD_A
+Text Label 10900 8300 2    50   ~ 0
+HPD_B
+Wire Wire Line
+	9300 5400 9600 5400
+Text Label 9600 5400 2    50   ~ 0
+HPD
+Text Label 10050 8250 0    50   ~ 0
+HPD
+Text Notes 11200 8600 0    50   ~ 0
+<-- Let me explain this monstruosity.\nHPD of the TDA19988 has a V_IH of 2V. Even\nwith the barely-in-spec HPD voltage of 4.8v,\nany of HPD_A or B getting there would raise\nHPD to 2.4v, making it a logic one in the chip's\neyes, effectively making an OR out of resistors.\n(Yeah too lazy to look for the proper 74 part)
 $EndSCHEMATC
