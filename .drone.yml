@@ -1,0 +1,57 @@
+pipeline:
+  dirs:
+    image: alpine
+    commands:
+      - mkdir -p out/layout
+      - mkdir -p out/bom/interactive
+      - mkdir -p out/schematic
+      - mkdir -p revs/heads
+
+  bom:
+    image: kicad-automation:4layers
+    group: fabrication-outputs
+    commands:
+      - python -m kicad-automation.eeschema.export_bom --schematic hardware/licheedmi/licheedmi.sch --output_dir out/bom export
+
+  ibom:
+    image: kicad-automation:4layers
+    group: fabrication-outputs
+    commands:
+      - sh /opt/InteractiveHtmlBom/make-interactive-bom hardware/licheedmi/licheedmi.kicad_pcb
+      - mv /output/bom/interactive/ibom.html out/bom/interactive/
+
+  schematic:
+    image: kicad-automation:4layers
+    group: fabrication-outputs
+    commands:
+      - python -m kicad-automation.eeschema.schematic --schematic hardware/licheedmi/licheedmi.sch --output_dir out/schematic/pdf export --all_pages -f pdf
+
+  gerbers:
+    image: kicad-automation:4layers
+    group: fabrication-outputs
+    commands:
+      - kiplot -b hardware/licheedmi/licheedmi.kicad_pcb -c /opt/etc/kiplot/generic_plot.kiplot.yaml -v -d out
+
+  zip-gerbers:
+    image: kramos/alpine-zip
+    commands:
+      - cd out/layout/gerber
+      - zip licheedmi.zip *_Cu.gbr *_Mask.gbr *_Paste.gbr *_SilkS.gbr *Edge_Cuts.gbr *-drl.gbr
+
+  revs:
+    image: alpine
+    group: revs
+    commands:
+      - '[[ ${DRONE_TAG} == "" ]] && cp -r out revs/heads/${DRONE_BRANCH} || true'
+      - '[[ "${DRONE_BRANCH}" == "master" ]] && cp -r out revs/latest || true'
+      - 'if [[ "${DRONE_TAG}" != "" ]]; then mkdir -p revs/tags; cp -r out revs/tags/${DRONE_TAG}; fi'
+
+  upload:
+    image: plugins/s3
+    endpoint: https://drone.s3.vps4.tuetuopay.fr
+    bucket: hdmizness
+    source: revs/**/*
+    target: /
+    path_style: true
+    strip_prefix: revs
+    secrets: [plugin_access_key, plugin_secret_key]
