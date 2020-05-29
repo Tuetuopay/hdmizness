@@ -4,14 +4,14 @@ EELAYER END
 $Descr A3 16535 11693
 encoding utf-8
 Sheet 1 1
-Title ""
-Date ""
-Rev ""
+Title "LicheeDMI"
+Date "2020-05-29"
+Rev "1"
 Comp ""
 Comment1 ""
 Comment2 ""
-Comment3 ""
-Comment4 ""
+Comment3 "through both a regular HDMI connector and a fully PCB-based one."
+Comment4 "Demo board to give HDMI output to Sipeed Lichee Nano SoM"
 $EndDescr
 $Comp
 L hdmizness:TDA19988 U?
@@ -41,7 +41,7 @@ U 1 1 5ED03A06
 P 14900 3800
 F 0 "J?" H 15330 3846 50  0000 L CNN
 F 1 "HDMI_A" H 15330 3755 50  0000 L CNN
-F 2 "" H 14925 3800 50  0001 C CNN
+F 2 "hdmizness:HDMI_A_PCB" H 14925 3800 50  0001 C CNN
 F 3 "https://en.wikipedia.org/wiki/HDMI" H 14925 3800 50  0001 C CNN
 	1    14900 3800
 	1    0    0    -1  
@@ -509,7 +509,7 @@ U 1 1 5EE63396
 P 14900 6700
 F 0 "J?" H 15330 6746 50  0000 L CNN
 F 1 "HDMI_A" H 15330 6655 50  0000 L CNN
-F 2 "" H 14925 6700 50  0001 C CNN
+F 2 "hdmizness:Boomelec_HDMI-001" H 14925 6700 50  0001 C CNN
 F 3 "https://en.wikipedia.org/wiki/HDMI" H 14925 6700 50  0001 C CNN
 	1    14900 6700
 	1    0    0    -1  
@@ -1768,17 +1768,6 @@ F 3 "~" H 4700 3500 50  0001 C CNN
 	1    4700 3500
 	-1   0    0    1   
 $EndComp
-$Comp
-L Device:LED_Small D?
-U 1 1 5F6D70B3
-P 4700 3200
-F 0 "D?" V 5000 3250 50  0000 R CNN
-F 1 "RED" V 4900 3250 50  0000 R CNN
-F 2 "" V 4700 3200 50  0001 C CNN
-F 3 "~" V 4700 3200 50  0001 C CNN
-	1    4700 3200
-	0    -1   -1   0   
-$EndComp
 Wire Wire Line
 	4700 3300 4700 3400
 Wire Wire Line
@@ -1821,33 +1810,11 @@ Wire Wire Line
 	4100 3300 4100 3400
 $Comp
 L Device:LED_Small D?
-U 1 1 5F6D6BCD
-P 4500 3200
-F 0 "D?" V 4800 3250 50  0000 R CNN
-F 1 "RED" V 4700 3250 50  0000 R CNN
-F 2 "" V 4500 3200 50  0001 C CNN
-F 3 "~" V 4500 3200 50  0001 C CNN
-	1    4500 3200
-	0    -1   -1   0   
-$EndComp
-$Comp
-L Device:LED_Small D?
-U 1 1 5F6D655D
-P 4300 3200
-F 0 "D?" V 4600 3250 50  0000 R CNN
-F 1 "RED" V 4500 3250 50  0000 R CNN
-F 2 "" V 4300 3200 50  0001 C CNN
-F 3 "~" V 4300 3200 50  0001 C CNN
-	1    4300 3200
-	0    -1   -1   0   
-$EndComp
-$Comp
-L Device:LED_Small D?
 U 1 1 5F6D3496
 P 4100 3200
 F 0 "D?" V 4400 3250 50  0000 R CNN
 F 1 "RED" V 4300 3250 50  0000 R CNN
-F 2 "" V 4100 3200 50  0001 C CNN
+F 2 "LED_SMD:LED_0603_1608Metric" V 4100 3200 50  0001 C CNN
 F 3 "~" V 4100 3200 50  0001 C CNN
 	1    4100 3200
 	0    -1   -1   0   
@@ -2184,4 +2151,37 @@ Text Label 10050 8250 0    50   ~ 0
 HPD
 Text Notes 11200 8600 0    50   ~ 0
 <-- Let me explain this monstruosity.\nHPD of the TDA19988 has a V_IH of 2V. Even\nwith the barely-in-spec HPD voltage of 4.8v,\nany of HPD_A or B getting there would raise\nHPD to 2.4v, making it a logic one in the chip's\neyes, effectively making an OR out of resistors.\n(Yeah too lazy to look for the proper 74 part)
+$Comp
+L Device:LED_Small D?
+U 1 1 613C01A5
+P 4300 3200
+F 0 "D?" V 4600 3250 50  0000 R CNN
+F 1 "RED" V 4500 3250 50  0000 R CNN
+F 2 "LED_SMD:LED_0603_1608Metric" V 4300 3200 50  0001 C CNN
+F 3 "~" V 4300 3200 50  0001 C CNN
+	1    4300 3200
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:LED_Small D?
+U 1 1 613C082E
+P 4500 3200
+F 0 "D?" V 4800 3250 50  0000 R CNN
+F 1 "RED" V 4700 3250 50  0000 R CNN
+F 2 "LED_SMD:LED_0603_1608Metric" V 4500 3200 50  0001 C CNN
+F 3 "~" V 4500 3200 50  0001 C CNN
+	1    4500 3200
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:LED_Small D?
+U 1 1 613C0C7E
+P 4700 3200
+F 0 "D?" V 5000 3250 50  0000 R CNN
+F 1 "RED" V 4900 3250 50  0000 R CNN
+F 2 "LED_SMD:LED_0603_1608Metric" V 4700 3200 50  0001 C CNN
+F 3 "~" V 4700 3200 50  0001 C CNN
+	1    4700 3200
+	0    -1   -1   0   
+$EndComp
 $EndSCHEMATC
