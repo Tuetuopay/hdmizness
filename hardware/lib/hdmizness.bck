@@ -1,9 +1,31 @@
 EESchema-DOCLIB  Version 2.0
 #
+$CMP HDMI_A
+D HDMI type A connector
+K hdmi conn
+F https://en.wikipedia.org/wiki/HDMI
+$ENDCMP
+#
+$CMP HDMI_A_PCB
+D PCB-based HDMI type A connector
+K hdmi conn
+F https://en.wikipedia.org/wiki/HDMI
+$ENDCMP
+#
+$CMP LicheeNano
+F ${KIPRJMOD}/../../documentation/lichee_nano_8.16_schematic.pdf
+$ENDCMP
+#
 $CMP LicheePiNano_LCD
 D Lichee Pi Nano LCD Flat-Flex Connector
 K connector
 F ${KIPRJMOD}/../../documentation/lichee_nano_8.16_schematic.pdf
+$ENDCMP
+#
+$CMP SC6206B
+D 250mA 5V Fixed LDO Linear Regulator, 1.8V, SOT-23
+K Fixed Voltage Regulator 250mA Positive LDO
+F ${KIPRJMOD}/../../documentation/SC6206B.pdf
 $ENDCMP
 #
 $CMP TDA19988

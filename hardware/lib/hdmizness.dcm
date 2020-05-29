@@ -1,5 +1,11 @@
 EESchema-DOCLIB  Version 2.0
 #
+$CMP HDMI_A_PCB
+D PCB-based HDMI type A connector
+K hdmi conn
+F https://en.wikipedia.org/wiki/HDMI
+$ENDCMP
+#
 $CMP LicheeNano
 F ${KIPRJMOD}/../../documentation/lichee_nano_8.16_schematic.pdf
 $ENDCMP
