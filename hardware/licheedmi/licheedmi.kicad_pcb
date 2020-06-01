@@ -4096,7 +4096,7 @@
   (segment (start 154.932192 96.1637) (end 153.8363 95.067808) (width 0.1524) (layer F.Cu) (net 71))
   (segment (start 153.8363 95.067808) (end 153.8363 85.067808) (width 0.1524) (layer F.Cu) (net 71))
   (segment (start 153.8363 85.067808) (end 152.932192 84.1637) (width 0.1524) (layer F.Cu) (net 71))
-  (segment (start 152.932192 84.1637) (end 152.932192 89.028084) (width 0.1524) (layer F.Cu) (net 71))
+  (segment (start 152.932192 84.1637) (end 148.067808 84.1637) (width 0.1524) (layer F.Cu) (net 71))
   (segment (start 146.9137 86.3762) (end 147 86.4625) (width 0.1524) (layer F.Cu) (net 71))
   (segment (start 148.067808 84.1637) (end 146.9137 85.317808) (width 0.1524) (layer F.Cu) (net 71))
   (segment (start 147 86.4625) (end 147 87.1625) (width 0.1524) (layer F.Cu) (net 71))
