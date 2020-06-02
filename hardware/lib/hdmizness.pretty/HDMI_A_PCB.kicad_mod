@@ -32,7 +32,7 @@
   (pad 17 smd rect (at 3.5 0) (size 0.5 5) (layers F.Cu F.Paste F.Mask))
   (pad 18 smd rect (at 4 0) (size 0.5 5) (layers B.Cu B.Paste B.Mask))
   (pad 19 smd rect (at 4.5 0) (size 0.5 5) (layers F.Cu F.Paste F.Mask))
-  (model "C:/Users/Alexis/.babun/cygwin/home/Alexis/hdmizness/hardware/lib/3d/HDMI Male V2.STEP"
+  (model "${KIPRJMOD}/../lib/3d/HDMI Male V2.STEP"
     (offset (xyz 0 37 -5.25))
     (scale (xyz 1 1 1))
     (rotate (xyz 0 0 180))
