@@ -1062,6 +1062,8 @@ F 0 "U2" H 2700 -1000 50  0000 C CNN
 F 1 "LicheeNano" H 2850 -1100 50  0000 C CNN
 F 2 "hdmizness:LicheeNano" H 1500 2650 50  0001 C CNN
 F 3 "${KIPRJMOD}/../../documentation/lichee_nano_8.16_schematic.pdf" H 1500 2650 50  0001 C CNN
+F 4 "C35445" H 1750 2600 50  0001 C CNN "LCSC P/N"
+F 5 "C35445" H 1750 2600 50  0001 C CNN "MFR P/N"
 	1    1750 2600
 	1    0    0    -1  
 $EndComp
@@ -2139,19 +2141,6 @@ F 5 "LTST-C193KRKT-5A" H 4700 3200 50  0001 C CNN "MFR P/N"
 	1    4700 3200
 	0    -1   -1   0   
 $EndComp
-$Comp
-L Connector_Generic:Conn_01x07 J1
-U 1 1 613C8FAC
-P 1500 1350
-F 0 "J1" H 1418 825 50  0000 C CNN
-F 1 "Conn_01x07" H 1418 916 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x07_P2.54mm_Vertical" H 1500 1350 50  0001 C CNN
-F 3 "~" H 1500 1350 50  0001 C CNN
-F 4 "C225482" H 1500 1350 50  0001 C CNN "LCSC P/N"
-F 5 "A2541WV-7P" H 1500 1350 50  0001 C CNN "MFR P/N"
-	1    1500 1350
-	-1   0    0    1   
-$EndComp
 Wire Wire Line
 	1700 1650 1800 1650
 Wire Wire Line
@@ -2552,4 +2541,47 @@ Wire Wire Line
 Connection ~ 4300 10100
 Wire Wire Line
 	4300 10100 4400 10100
+$Comp
+L Connector_Generic:Conn_01x09 J1
+U 1 1 5EDD1EBB
+P 1500 1250
+F 0 "J1" H 1579 1200 50  0000 L CNN
+F 1 "Conn_01x09" H 1579 1291 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x09_P2.54mm_Vertical" H 1500 1250 50  0001 C CNN
+F 3 "~" H 1500 1250 50  0001 C CNN
+F 4 "C225484" H 1500 1250 50  0001 C CNN "LCSC P/N"
+F 5 "A2541WV-9P" H 1500 1250 50  0001 C CNN "MFR P/N"
+	1    1500 1250
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:+5V #PWR037
+U 1 1 5EDD6193
+P 1800 750
+F 0 "#PWR037" H 1800 600 50  0001 C CNN
+F 1 "+5V" H 1815 923 50  0000 C CNN
+F 2 "" H 1800 750 50  0001 C CNN
+F 3 "" H 1800 750 50  0001 C CNN
+	1    1800 750 
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3V3 #PWR038
+U 1 1 5EDD6B30
+P 2050 750
+F 0 "#PWR038" H 2050 600 50  0001 C CNN
+F 1 "+3V3" H 2065 923 50  0000 C CNN
+F 2 "" H 2050 750 50  0001 C CNN
+F 3 "" H 2050 750 50  0001 C CNN
+	1    2050 750 
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1700 850  1800 850 
+Wire Wire Line
+	1800 850  1800 750 
+Wire Wire Line
+	1700 950  2050 950 
+Wire Wire Line
+	2050 950  2050 750 
 $EndSCHEMATC
