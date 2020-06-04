@@ -2533,6 +2533,8 @@ F 0 "J5" H 6907 10417 50  0000 C CNN
 F 1 "USB_C_Receptacle_USB2.0" H 6907 10326 50  0000 C CNN
 F 2 "hdmizness:USB_C_Receptacle_Palconn_UTC16-G" H 6950 9550 50  0001 C CNN
 F 3 "https://www.usb.org/sites/default/files/documents/usb_type-c.zip" H 6950 9550 50  0001 C CNN
+F 4 "C165948" H 6800 9550 50  0001 C CNN "LCSC P/N"
+F 5 "TYPE-C-31-M-12" H 6800 9550 50  0001 C CNN "MFR P/N"
 	1    6800 9550
 	1    0    0    -1  
 $EndComp
