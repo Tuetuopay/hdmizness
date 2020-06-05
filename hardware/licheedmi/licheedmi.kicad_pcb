@@ -5058,7 +5058,7 @@
   (gr_text UARTs (at 76.9 106.4 90) (layer F.SilkS) (tstamp 5EDB6D81)
     (effects (font (size 0.82 0.82) (thickness 0.15)))
   )
-  (gr_text JLCJLCJLC (at 118 89.3 270) (layer F.SilkS)
+  (gr_text JLCJLCJLCJLC (at 117.6 89.3 270) (layer F.SilkS)
     (effects (font (size 1 1) (thickness 0.15)))
   )
   (gr_text "Pushin' pixels\nain't we?" (at 150.7 98.4) (layer F.SilkS)
