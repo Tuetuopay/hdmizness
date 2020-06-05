@@ -16,6 +16,12 @@ $CMP LicheeNano
 F ${KIPRJMOD}/../../documentation/lichee_nano_8.16_schematic.pdf
 $ENDCMP
 #
+$CMP LicheeNano_LCD
+D Lichee Nano LCD Flat-Flex Connector
+K connector
+F ${KIPRJMOD}/../../documentation/lichee_nano_8.16_schematic.pdf
+$ENDCMP
+#
 $CMP LicheePiNano_LCD
 D Lichee Pi Nano LCD Flat-Flex Connector
 K connector
