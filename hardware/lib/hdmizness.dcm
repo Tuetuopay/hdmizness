@@ -44,6 +44,56 @@ D 24 bit RGB to HDMI 1.4a transmitter
 F ${KIPRJMOD}/../../documentation/TDA19988.pdf
 $ENDCMP
 #
+$CMP TLV74310PDBVR
+D 1.0V, 300-mA, Low-Dropout Regulator
+F ${KIPRJMOD}/../../documentation/tlv743p.pdf
+$ENDCMP
+#
+$CMP TLV74311PDBVR
+D 1.1V, 300-mA, Low-Dropout Regulator
+F ${KIPRJMOD}/../../documentation/tlv743p.pdf
+$ENDCMP
+#
+$CMP TLV74312PDBVR
+D 1.2V, 300-mA, Low-Dropout Regulator
+F ${KIPRJMOD}/../../documentation/tlv743p.pdf
+$ENDCMP
+#
+$CMP TLV74315PDBVR
+D 1.5V, 300-mA, Low-Dropout Regulator
+F ${KIPRJMOD}/../../documentation/tlv743p.pdf
+$ENDCMP
+#
+$CMP TLV74318PDBVR
+D 1.8V, 300-mA, Low-Dropout Regulator
+F ${KIPRJMOD}/../../documentation/tlv743p.pdf
+$ENDCMP
+#
+$CMP TLV74325PDBVR
+D 2.5V, 300-mA, Low-Dropout Regulator
+F ${KIPRJMOD}/../../documentation/tlv743p.pdf
+$ENDCMP
+#
+$CMP TLV74328PDBVR
+D 2.8V, 300-mA, Low-Dropout Regulator
+F ${KIPRJMOD}/../../documentation/tlv743p.pdf
+$ENDCMP
+#
+$CMP TLV74330PDBVR
+D 3.0V, 300-mA, Low-Dropout Regulator
+F ${KIPRJMOD}/../../documentation/tlv743p.pdf
+$ENDCMP
+#
+$CMP TLV74333PDBVR
+D 3.3V, 300-mA, Low-Dropout Regulator
+F ${KIPRJMOD}/../../documentation/tlv743p.pdf
+$ENDCMP
+#
+$CMP TLV743xxPDBVR
+D 1.0V, 300-mA, Low-Dropout Regulator
+F ${KIPRJMOD}/../../documentation/tlv743p.pdf
+$ENDCMP
+#
 $CMP TS3DV20812
 D 2Gbps differential switch, 1:2 multiplexer/demlutiplexer with 3 side-band signals
 F ${KIPRJMOD}/../../documentation/TS3DV20812.pdf

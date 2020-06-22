@@ -1,9 +1,9 @@
 EESchema-DOCLIB  Version 2.0
 #
-$CMP HDMI_A
-D HDMI type A connector
-K hdmi conn
-F https://en.wikipedia.org/wiki/HDMI
+$CMP CH340C
+D USB to serial
+K UART
+F ${KIPRJMOD}/../../documentation/CH340DS1.pdf
 $ENDCMP
 #
 $CMP HDMI_A_PCB
@@ -13,6 +13,12 @@ F https://en.wikipedia.org/wiki/HDMI
 $ENDCMP
 #
 $CMP LicheeNano
+F ${KIPRJMOD}/../../documentation/lichee_nano_8.16_schematic.pdf
+$ENDCMP
+#
+$CMP LicheeNano_LCD
+D Lichee Nano LCD Flat-Flex Connector
+K connector
 F ${KIPRJMOD}/../../documentation/lichee_nano_8.16_schematic.pdf
 $ENDCMP
 #
@@ -28,9 +34,64 @@ K Fixed Voltage Regulator 250mA Positive LDO
 F ${KIPRJMOD}/../../documentation/SC6206B.pdf
 $ENDCMP
 #
+$CMP SiI9022A
+D 24 bit RGB to HDMI 1.4a transmitter
+F ${KIPRJMOD}/../../documentation/Lattice-SiI9024A.pdf
+$ENDCMP
+#
 $CMP TDA19988
 D 24 bit RGB to HDMI 1.4a transmitter
 F ${KIPRJMOD}/../../documentation/TDA19988.pdf
+$ENDCMP
+#
+$CMP TLV74310PDBVR
+D 1.0V, 300-mA, Low-Dropout Regulator
+F ${KIPRJMOD}/../../documentation/tlv743p.pdf
+$ENDCMP
+#
+$CMP TLV74311PDBVR
+D 1.1V, 300-mA, Low-Dropout Regulator
+F ${KIPRJMOD}/../../documentation/tlv743p.pdf
+$ENDCMP
+#
+$CMP TLV74312PDBVR
+D 1.2V, 300-mA, Low-Dropout Regulator
+F ${KIPRJMOD}/../../documentation/tlv743p.pdf
+$ENDCMP
+#
+$CMP TLV74315PDBVR
+D 1.5V, 300-mA, Low-Dropout Regulator
+F ${KIPRJMOD}/../../documentation/tlv743p.pdf
+$ENDCMP
+#
+$CMP TLV74318PDBVR
+D 1.8V, 300-mA, Low-Dropout Regulator
+F ${KIPRJMOD}/../../documentation/tlv743p.pdf
+$ENDCMP
+#
+$CMP TLV74325PDBVR
+D 2.5V, 300-mA, Low-Dropout Regulator
+F ${KIPRJMOD}/../../documentation/tlv743p.pdf
+$ENDCMP
+#
+$CMP TLV74328PDBVR
+D 2.8V, 300-mA, Low-Dropout Regulator
+F ${KIPRJMOD}/../../documentation/tlv743p.pdf
+$ENDCMP
+#
+$CMP TLV74330PDBVR
+D 3.0V, 300-mA, Low-Dropout Regulator
+F ${KIPRJMOD}/../../documentation/tlv743p.pdf
+$ENDCMP
+#
+$CMP TLV74333PDBVR
+D 3.3V, 300-mA, Low-Dropout Regulator
+F ${KIPRJMOD}/../../documentation/tlv743p.pdf
+$ENDCMP
+#
+$CMP TLV743xxPDBVR
+D 1.0V, 300-mA, Low-Dropout Regulator
+F ${KIPRJMOD}/../../documentation/tlv743p.pdf
 $ENDCMP
 #
 $CMP TS3DV20812
