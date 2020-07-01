@@ -1,5 +1,4 @@
 EESchema Schematic File Version 4
-LIBS:licheedmi-cache
 EELAYER 30 0
 EELAYER END
 $Descr A3 16535 11693
@@ -14,19 +13,6 @@ Comment2 ""
 Comment3 "through both a regular HDMI connector and a fully PCB-based one."
 Comment4 "Demo board to give HDMI output to Sipeed Lichee Nano SoM"
 $EndDescr
-$Comp
-L hdmizness:TDA19988 U1
-U 1 1 5ECFE2D8
-P 7100 2350
-F 0 "U1" H 8450 -2150 50  0000 C CNN
-F 1 "TDA19988" H 8600 -2250 50  0000 C CNN
-F 2 "Package_DFN_QFN:QFN-64-1EP_9x9mm_P0.5mm_EP4.7x4.7mm" H 6600 2250 50  0001 C CNN
-F 3 "${KIPRJMOD}/../../documentation/TDA19988.pdf" H 6600 2250 50  0001 C CNN
-F 4 "TDA19988BHN/C1,557" H 7100 2350 50  0001 C CNN "MFR P/N"
-F 5 "31AC7073" H 7100 2350 50  0001 C CNN "Newark P/N"
-	1    7100 2350
-	1    0    0    -1  
-$EndComp
 $Comp
 L hdmizness:TS3DV20812 U3
 U 1 1 5ED01131
@@ -43,132 +29,85 @@ $EndComp
 $Comp
 L power:GND #PWR018
 U 1 1 5ED3A63F
-P 5100 6200
-F 0 "#PWR018" H 5100 5950 50  0001 C CNN
-F 1 "GND" H 5105 6027 50  0000 C CNN
-F 2 "" H 5100 6200 50  0001 C CNN
-F 3 "" H 5100 6200 50  0001 C CNN
-	1    5100 6200
+P 5100 6000
+F 0 "#PWR018" H 5100 5750 50  0001 C CNN
+F 1 "GND" H 5105 5827 50  0000 C CNN
+F 2 "" H 5100 6000 50  0001 C CNN
+F 3 "" H 5100 6000 50  0001 C CNN
+	1    5100 6000
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:GND #PWR019
 U 1 1 5ED3B487
-P 5700 6200
-F 0 "#PWR019" H 5700 5950 50  0001 C CNN
-F 1 "GND" H 5705 6027 50  0000 C CNN
-F 2 "" H 5700 6200 50  0001 C CNN
-F 3 "" H 5700 6200 50  0001 C CNN
-	1    5700 6200
+P 5700 6000
+F 0 "#PWR019" H 5700 5750 50  0001 C CNN
+F 1 "GND" H 5705 5827 50  0000 C CNN
+F 2 "" H 5700 6000 50  0001 C CNN
+F 3 "" H 5700 6000 50  0001 C CNN
+	1    5700 6000
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	5100 6200 5100 6100
-Wire Wire Line
-	5600 3650 6800 3650
-Wire Wire Line
-	6800 4850 6800 4950
-Wire Wire Line
-	6800 4950 7000 4950
+	5100 6000 5100 5900
 $Comp
 L power:GND #PWR022
 U 1 1 5ED3F9A0
-P 6900 6950
-F 0 "#PWR022" H 6900 6700 50  0001 C CNN
-F 1 "GND" H 6905 6777 50  0000 C CNN
-F 2 "" H 6900 6950 50  0001 C CNN
-F 3 "" H 6900 6950 50  0001 C CNN
-	1    6900 6950
+P 6900 6750
+F 0 "#PWR022" H 6900 6500 50  0001 C CNN
+F 1 "GND" H 6905 6577 50  0000 C CNN
+F 2 "" H 6900 6750 50  0001 C CNN
+F 3 "" H 6900 6750 50  0001 C CNN
+	1    6900 6750
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	6900 4650 7000 4650
+	6900 4450 7000 4450
 Wire Wire Line
-	7000 4750 6900 4750
-Wire Wire Line
-	7000 3650 6900 3650
+	7000 4550 6900 4550
 Wire Wire Line
 	7000 3750 6900 3750
 Wire Wire Line
-	7000 3850 6900 3850
+	7000 3550 6900 3550
 Wire Wire Line
-	7000 5050 6700 5050
+	7000 3650 6900 3650
 Wire Wire Line
-	6700 5050 6700 4950
-Wire Wire Line
-	6700 3550 5600 3550
-Wire Wire Line
-	5600 3450 6600 3450
-Wire Wire Line
-	6600 5050 6600 5150
-Wire Wire Line
-	6600 5150 7000 5150
-Wire Wire Line
-	7000 5250 6500 5250
-Wire Wire Line
-	6500 5250 6500 5150
-Wire Wire Line
-	6500 3350 5600 3350
-Wire Wire Line
-	5600 3250 6400 3250
-Wire Wire Line
-	6400 5250 6400 5350
-Wire Wire Line
-	6400 5350 7000 5350
-Wire Wire Line
-	5600 3750 6200 3750
-Text Label 6200 3750 2    50   ~ 0
+	5600 3550 6200 3550
+Text Label 6200 3550 2    50   ~ 0
 CPU_SDA
-Wire Wire Line
-	5600 3050 6900 3050
-Wire Wire Line
-	6900 2950 7000 2950
+NoConn ~ 5600 1850
+NoConn ~ 5600 1950
 NoConn ~ 5600 2050
 NoConn ~ 5600 2150
-NoConn ~ 5600 2250
-NoConn ~ 5600 2350
-NoConn ~ 5600 5850
-NoConn ~ 5600 5950
+NoConn ~ 5600 5650
+NoConn ~ 5600 5750
+NoConn ~ 7000 5950
+NoConn ~ 7000 6050
 NoConn ~ 7000 6150
-NoConn ~ 7000 6250
-NoConn ~ 7000 6350
 $Comp
 L power:+3V3 #PWR05
 U 1 1 5ED95796
-P 5800 1950
-F 0 "#PWR05" H 5800 1800 50  0001 C CNN
-F 1 "+3V3" H 5815 2123 50  0000 C CNN
-F 2 "" H 5800 1950 50  0001 C CNN
-F 3 "" H 5800 1950 50  0001 C CNN
-	1    5800 1950
+P 5800 1750
+F 0 "#PWR05" H 5800 1600 50  0001 C CNN
+F 1 "+3V3" H 5815 1923 50  0000 C CNN
+F 2 "" H 5800 1750 50  0001 C CNN
+F 3 "" H 5800 1750 50  0001 C CNN
+	1    5800 1750
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
 	7000 6550 6400 6550
 Text Label 6400 6550 0    50   ~ 0
 HDMI_INT
-Wire Wire Line
-	7900 6850 7900 6900
-Wire Wire Line
-	7900 6900 8000 6900
-Wire Wire Line
-	8100 6900 8100 6850
-Wire Wire Line
-	8000 6850 8000 6900
-Connection ~ 8000 6900
-Wire Wire Line
-	8000 6900 8100 6900
-Wire Wire Line
-	8000 6900 8000 6950
 $Comp
 L power:GND #PWR023
 U 1 1 5EDA1A69
-P 8000 6950
-F 0 "#PWR023" H 8000 6700 50  0001 C CNN
-F 1 "GND" H 8005 6777 50  0000 C CNN
-F 2 "" H 8000 6950 50  0001 C CNN
-F 3 "" H 8000 6950 50  0001 C CNN
-	1    8000 6950
+P 8100 6950
+F 0 "#PWR023" H 8100 6700 50  0001 C CNN
+F 1 "GND" H 8105 6777 50  0000 C CNN
+F 2 "" H 8100 6950 50  0001 C CNN
+F 3 "" H 8100 6950 50  0001 C CNN
+	1    8100 6950
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -207,7 +146,7 @@ CPU_SCL
 Text Label 9750 2550 2    50   ~ 0
 CPU_SDA
 Text Notes 10500 2800 0    50   ~ 0
-Base addresses:\n- HDMI Core: 0b11100xx = 0x70\n- CEC Core: 0b01101xx = 0x34\nLicheeNano has the touch controller at 0x48
+Base addresses:\n- TPI Core: 0b01110x10 = 0x72\n- CEC Core: 0b11000x00 = 0xC0\nLicheeNano has the touch controller at 0x48
 $Comp
 L Device:R_Small R3
 U 1 1 5EDB4247
@@ -224,39 +163,17 @@ $EndComp
 Wire Wire Line
 	9300 2750 9450 2750
 Wire Wire Line
-	9300 2850 9450 2850
-Wire Wire Line
 	9650 2750 9750 2750
-Wire Wire Line
-	9750 2750 9750 2850
-Wire Wire Line
-	9750 2850 9650 2850
 $Comp
 L power:GND #PWR08
 U 1 1 5EDC2697
-P 9750 2950
-F 0 "#PWR08" H 9750 2700 50  0001 C CNN
-F 1 "GND" H 9755 2777 50  0000 C CNN
-F 2 "" H 9750 2950 50  0001 C CNN
-F 3 "" H 9750 2950 50  0001 C CNN
-	1    9750 2950
+P 9750 2850
+F 0 "#PWR08" H 9750 2600 50  0001 C CNN
+F 1 "GND" H 9755 2677 50  0000 C CNN
+F 2 "" H 9750 2850 50  0001 C CNN
+F 3 "" H 9750 2850 50  0001 C CNN
+	1    9750 2850
 	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	9750 2950 9750 2850
-Connection ~ 9750 2850
-$Comp
-L Device:R_Small R4
-U 1 1 5EDC69A0
-P 9550 2850
-F 0 "R4" V 9550 3300 50  0000 C CNN
-F 1 "10k" V 9550 3150 50  0000 C CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" H 9550 2850 50  0001 C CNN
-F 3 "~" H 9550 2850 50  0001 C CNN
-F 4 "C98220" H 9550 2850 50  0001 C CNN "LCSC P/N"
-F 5 "RC0603FR-0710KL" H 9550 2850 50  0001 C CNN "MFR P/N"
-	1    9550 2850
-	0    1    1    0   
 $EndComp
 Wire Wire Line
 	14700 4900 14700 4950
@@ -583,23 +500,23 @@ Wire Wire Line
 	9300 2550 9850 2550
 Wire Wire Line
 	9300 2650 9950 2650
-Text Label 6200 3650 2    50   ~ 0
-LCD_B3
-Text Label 6200 3550 2    50   ~ 0
-LCD_B4
 Text Label 6200 3450 2    50   ~ 0
-LCD_B5
+LCD_B3
 Text Label 6200 3350 2    50   ~ 0
-LCD_B6
+LCD_B4
 Text Label 6200 3250 2    50   ~ 0
-LCD_B7
+LCD_B5
+Text Label 6200 3150 2    50   ~ 0
+LCD_B6
 Text Label 6200 3050 2    50   ~ 0
+LCD_B7
+Text Label 6200 2850 2    50   ~ 0
 LCD_CLK
-Text Label 6300 2850 2    50   ~ 0
+Text Label 6300 2650 2    50   ~ 0
 LCD_HSYNC
-Text Label 6300 2750 2    50   ~ 0
+Text Label 6300 2550 2    50   ~ 0
 LCD_VSYNC
-Text Label 6200 2650 2    50   ~ 0
+Text Label 6200 2450 2    50   ~ 0
 LCD_DE
 Wire Wire Line
 	1650 4000 1050 4000
@@ -786,34 +703,6 @@ Text Label 3850 4300 2    50   ~ 0
 LED0
 Text Label 3850 4400 2    50   ~ 0
 LED1
-Wire Wire Line
-	7500 2250 7500 2200
-Wire Wire Line
-	7500 2200 7550 2200
-Wire Wire Line
-	7600 2200 7600 2250
-Connection ~ 7550 2200
-Wire Wire Line
-	7550 2200 7600 2200
-Wire Wire Line
-	7800 2250 7800 2200
-Wire Wire Line
-	7900 2200 7900 2250
-Wire Wire Line
-	8300 2250 8300 2200
-Wire Wire Line
-	8300 2200 8400 2200
-Wire Wire Line
-	8500 2200 8500 2250
-Wire Wire Line
-	8400 2250 8400 2200
-Connection ~ 8400 2200
-Wire Wire Line
-	8400 2200 8500 2200
-Wire Wire Line
-	8700 2250 8700 2200
-Wire Wire Line
-	8800 2200 8800 2250
 $Comp
 L Device:Ferrite_Bead_Small FB2
 U 1 1 5F0C5A87
@@ -840,36 +729,6 @@ F 5 "CL10B105KP8NNNC" H 4200 9100 50  0001 C CNN "MFR P/N"
 	1    4200 9100
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	7550 1850 7550 2200
-Text Label 7550 1850 3    50   ~ 0
-VDDC
-Wire Wire Line
-	7800 2200 7850 2200
-Wire Wire Line
-	8700 2200 8750 2200
-Wire Wire Line
-	7850 1850 7850 2200
-Text Label 7850 1850 3    50   ~ 0
-VDDIO
-Connection ~ 7850 2200
-Wire Wire Line
-	7850 2200 7900 2200
-Wire Wire Line
-	8100 1850 8100 2250
-Wire Wire Line
-	8400 2200 8400 1850
-Wire Wire Line
-	8750 1850 8750 2200
-Connection ~ 8750 2200
-Wire Wire Line
-	8750 2200 8800 2200
-Text Label 8100 1850 3    50   ~ 0
-VDDA
-Text Label 8400 1850 3    50   ~ 0
-VDDATX
-Text Label 8750 1850 3    50   ~ 0
-VDDAPLL
 $Comp
 L power:+1V8 #PWR030
 U 1 1 5FCC45CF
@@ -1355,7 +1214,6 @@ Wire Wire Line
 Wire Wire Line
 	3250 4600 4700 4600
 NoConn ~ 3250 2900
-NoConn ~ 3250 3600
 $Comp
 L hdmizness:SC6206B U4
 U 1 1 60AAC4BB
@@ -2088,27 +1946,17 @@ Wire Wire Line
 Wire Wire Line
 	11550 4750 13050 4750
 Wire Wire Line
-	13050 3600 14500 3600
-Wire Wire Line
-	12950 3500 14500 3500
-Wire Wire Line
 	11550 4650 12950 4650
 Wire Wire Line
 	11550 4550 12850 4550
-Wire Wire Line
-	12850 3400 14500 3400
 Wire Wire Line
 	12750 3300 14500 3300
 Wire Wire Line
 	11550 4450 12750 4450
 Wire Wire Line
-	12650 3200 14500 3200
-Wire Wire Line
 	11550 4350 12650 4350
 Wire Wire Line
 	11550 4250 12550 4250
-Wire Wire Line
-	12550 3100 14500 3100
 Wire Wire Line
 	12450 3000 14500 3000
 Wire Wire Line
@@ -2116,7 +1964,7 @@ Wire Wire Line
 Wire Wire Line
 	13250 4950 13250 3900
 Wire Wire Line
-	13150 4850 13150 3700
+	13150 4850 13150 4500
 Wire Wire Line
 	13050 3600 13050 4750
 Wire Wire Line
@@ -2669,24 +2517,20 @@ Wire Wire Line
 Connection ~ 5350 7850
 Wire Wire Line
 	2750 8800 2850 8800
-Text Notes 4850 1650 0    50   ~ 0
+Text Notes 4850 1450 0    50   ~ 0
 The Lichee Nano is hardwired to output\nRGB666 video. Since RGB565 is not \nthat far off, and it enables us to use\nthe I2C0 bus through the ribbon cable,\nwell let's do it.\nAnd the fact the F1C100S happens to\nhave I2C0 on those LCD bits shows\nAllwinner thought about their pinouts.\nHats off to them.
-Text Label 6200 4050 2    50   ~ 0
+Text Label 6200 3850 2    50   ~ 0
 LCD_G7
-Text Label 6200 4150 2    50   ~ 0
+Text Label 6200 3950 2    50   ~ 0
 LCD_G6
-Text Label 6200 4250 2    50   ~ 0
+Text Label 6200 4050 2    50   ~ 0
 LCD_G5
-Text Label 6200 4350 2    50   ~ 0
+Text Label 6200 4150 2    50   ~ 0
 LCD_G4
-Text Label 6200 4450 2    50   ~ 0
+Text Label 6200 4250 2    50   ~ 0
 LCD_G3
-Text Label 6200 4550 2    50   ~ 0
+Text Label 6200 4350 2    50   ~ 0
 LCD_G2
-Wire Wire Line
-	5600 4550 7000 4550
-Wire Wire Line
-	5600 4450 7000 4450
 Wire Wire Line
 	5600 4350 7000 4350
 Wire Wire Line
@@ -2696,164 +2540,110 @@ Wire Wire Line
 Wire Wire Line
 	5600 4050 7000 4050
 Wire Wire Line
-	5600 5350 6200 5350
-Text Label 6200 5350 2    50   ~ 0
-CPU_SCL
-Text Label 6200 4850 2    50   ~ 0
-LCD_R7
-Text Label 6200 4950 2    50   ~ 0
-LCD_R6
-Text Label 6200 5050 2    50   ~ 0
-LCD_R5
+	5600 3950 7000 3950
+Wire Wire Line
+	5600 3850 7000 3850
+Wire Wire Line
+	5600 5150 6200 5150
 Text Label 6200 5150 2    50   ~ 0
+CPU_SCL
+Text Label 6200 4650 2    50   ~ 0
+LCD_R7
+Text Label 6200 4750 2    50   ~ 0
+LCD_R6
+Text Label 6200 4850 2    50   ~ 0
+LCD_R5
+Text Label 6200 4950 2    50   ~ 0
 LCD_R4
-Text Label 6200 5250 2    50   ~ 0
+Text Label 6200 5050 2    50   ~ 0
 LCD_R3
 Wire Wire Line
-	5600 5250 6400 5250
-Wire Wire Line
-	5600 5150 6500 5150
-Wire Wire Line
-	5600 5050 6600 5050
-Wire Wire Line
-	5600 4950 6700 4950
-Wire Wire Line
-	5600 4850 6800 4850
-Wire Wire Line
-	6800 3550 7000 3550
-Wire Wire Line
-	6800 3650 6800 3550
-Wire Wire Line
-	6700 3550 6700 3450
-Wire Wire Line
-	6700 3450 7000 3450
-Wire Wire Line
-	6600 3450 6600 3350
-Wire Wire Line
-	6600 3350 7000 3350
-Wire Wire Line
-	6500 3350 6500 3250
-Wire Wire Line
-	6500 3250 7000 3250
-Wire Wire Line
-	6400 3250 6400 3150
+	6900 3550 6900 3650
+Connection ~ 6900 3650
 Wire Wire Line
 	6900 3650 6900 3750
+Connection ~ 6900 4450
 Wire Wire Line
-	6400 3150 7000 3150
-Connection ~ 6900 3750
-Wire Wire Line
-	6900 3750 6900 3850
-Connection ~ 6900 3850
-Wire Wire Line
-	6900 3850 6900 4650
-Connection ~ 6900 4650
-Wire Wire Line
-	6900 4650 6900 4750
-Connection ~ 6900 4750
+	6900 4450 6900 4550
+Connection ~ 6900 4550
 $Comp
 L hdmizness:LicheePiNano_LCD J3
 U 1 1 5ED2DC5B
-P 5400 3950
-F 0 "J3" H 5543 6075 50  0000 C CNN
-F 1 "LicheePiNano_LCD" H 5543 5984 50  0000 C CNN
-F 2 "hdmizness:Hirose_FH12-40S-0.5SH_1x40-1MP_P0.50mm_Horizontal" H 5350 3950 50  0001 C CNN
-F 3 "${KIPRJMOD}/../../documentation/lichee_nano_8.16_schematic.pdf" H 5350 3950 50  0001 C CNN
-F 4 "C202114" H 5400 3950 50  0001 C CNN "LCSC P/N"
-F 5 "FH12-40S-0.5SH(55)" H 5400 3950 50  0001 C CNN "MFR P/N"
-	1    5400 3950
+P 5400 3750
+F 0 "J3" H 5543 5875 50  0000 C CNN
+F 1 "LicheePiNano_LCD" H 5543 5784 50  0000 C CNN
+F 2 "hdmizness:Hirose_FH12-40S-0.5SH_1x40-1MP_P0.50mm_Horizontal" H 5350 3750 50  0001 C CNN
+F 3 "${KIPRJMOD}/../../documentation/lichee_nano_8.16_schematic.pdf" H 5350 3750 50  0001 C CNN
+F 4 "C202114" H 5400 3750 50  0001 C CNN "LCSC P/N"
+F 5 "FH12-40S-0.5SH(55)" H 5400 3750 50  0001 C CNN "MFR P/N"
+	1    5400 3750
 	-1   0    0    -1  
 $EndComp
 Wire Wire Line
-	6900 4750 6900 5450
+	6900 4550 6900 5150
 Wire Wire Line
-	6900 5650 7000 5650
+	6900 5350 7000 5350
 Wire Wire Line
-	7000 5550 6900 5550
+	7000 5250 6900 5250
 Wire Wire Line
-	6900 5450 7000 5450
-Connection ~ 6900 5450
+	6900 5150 7000 5150
+Connection ~ 6900 5250
 Wire Wire Line
-	6900 5450 6900 5550
-Connection ~ 6900 5550
+	6900 5250 6900 5350
+Connection ~ 6900 5350
 Wire Wire Line
-	6900 5550 6900 5650
+	5600 5450 5800 5450
 Wire Wire Line
-	6900 3050 6900 2950
+	5800 1750 5800 2750
 Wire Wire Line
-	6900 5650 6900 6950
-Connection ~ 6900 5650
-Wire Wire Line
-	6800 2850 6800 2750
-Wire Wire Line
-	6800 2750 7000 2750
-Wire Wire Line
-	5600 2850 6800 2850
-Wire Wire Line
-	6700 2750 6700 2650
-Wire Wire Line
-	6700 2650 7000 2650
-Wire Wire Line
-	5600 2750 6700 2750
-Wire Wire Line
-	6600 2650 6600 2550
-Wire Wire Line
-	6600 2550 7000 2550
-Wire Wire Line
-	5600 2650 6600 2650
-Wire Wire Line
-	5600 5650 5800 5650
-Wire Wire Line
-	5800 1950 5800 2950
-Wire Wire Line
-	5700 6200 5700 5750
-Wire Wire Line
-	5700 5750 5600 5750
-Wire Wire Line
-	5700 5750 5700 5550
+	5700 6000 5700 5550
 Wire Wire Line
 	5700 5550 5600 5550
-Connection ~ 5700 5750
 Wire Wire Line
-	5600 5450 5700 5450
+	5700 5550 5700 5350
 Wire Wire Line
-	5700 5450 5700 5550
+	5700 5350 5600 5350
 Connection ~ 5700 5550
 Wire Wire Line
-	5700 5450 5700 4750
+	5600 5250 5700 5250
 Wire Wire Line
-	5700 4750 5600 4750
-Connection ~ 5700 5450
+	5700 5250 5700 5350
+Connection ~ 5700 5350
 Wire Wire Line
-	5700 4750 5700 4650
+	5700 5250 5700 4550
 Wire Wire Line
-	5700 4650 5600 4650
-Connection ~ 5700 4750
+	5700 4550 5600 4550
+Connection ~ 5700 5250
 Wire Wire Line
-	5700 4650 5700 3950
+	5700 4550 5700 4450
 Wire Wire Line
-	5700 3950 5600 3950
-Connection ~ 5700 4650
+	5700 4450 5600 4450
+Connection ~ 5700 4550
 Wire Wire Line
-	5600 3850 5700 3850
+	5700 4450 5700 3750
 Wire Wire Line
-	5700 3850 5700 3950
-Connection ~ 5700 3950
+	5700 3750 5600 3750
+Connection ~ 5700 4450
 Wire Wire Line
-	5600 3150 5700 3150
+	5600 3650 5700 3650
 Wire Wire Line
-	5700 3150 5700 3850
-Connection ~ 5700 3850
+	5700 3650 5700 3750
+Connection ~ 5700 3750
 Wire Wire Line
-	5600 2950 5800 2950
-Connection ~ 5800 2950
+	5600 2950 5700 2950
 Wire Wire Line
-	5800 2950 5800 5650
+	5700 2950 5700 3650
+Connection ~ 5700 3650
 Wire Wire Line
-	5600 2450 5700 2450
+	5600 2750 5800 2750
+Connection ~ 5800 2750
 Wire Wire Line
-	5700 2450 5700 3150
-Connection ~ 5700 3150
+	5800 2750 5800 5450
+Wire Wire Line
+	5600 2250 5700 2250
+Wire Wire Line
+	5700 2250 5700 2950
+Connection ~ 5700 2950
 $Comp
 L hdmizness:LicheeNano U2
 U 1 1 5F223DE5
@@ -2881,15 +2671,115 @@ Wire Wire Line
 Text Label 3850 4000 2    50   ~ 0
 I2S_DO
 Wire Wire Line
-	6400 5850 7000 5850
-Text Label 6400 5850 0    50   ~ 0
+	6400 5550 7000 5550
+Text Label 6400 5550 0    50   ~ 0
 I2S_BCLK
 Wire Wire Line
-	6400 5950 7000 5950
-Text Label 6400 5950 0    50   ~ 0
+	6400 5650 7000 5650
+Text Label 6400 5650 0    50   ~ 0
 I2S_LRCLK
 Wire Wire Line
-	6400 6050 7000 6050
-Text Label 6400 6050 0    50   ~ 0
+	6400 5750 7000 5750
+Text Label 6400 5750 0    50   ~ 0
 I2S_DO
+$Comp
+L hdmizness:SiI9022A U?
+U 1 1 5F042358
+P 7100 2350
+F 0 "U?" H 8650 -2150 50  0000 C CNN
+F 1 "SiI9022A" H 8750 -2250 50  0000 C CNN
+F 2 "hdmizness:QFN-72-1EP_10x10mm_P0.5mm_EP4.7x4.7mm_ThermalVias" H 8200 3050 50  0001 C CNN
+F 3 "${KIPRJMOD}/../../documentation/Lattice-SiI9024A.pdf" H 6600 2250 50  0001 C CNN
+	1    7100 2350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	13150 3900 13150 3800
+Connection ~ 6900 3750
+Wire Wire Line
+	6900 3750 6900 4450
+Wire Wire Line
+	13050 3600 14500 3600
+Wire Wire Line
+	12950 3500 14500 3500
+Wire Wire Line
+	12850 3400 14500 3400
+Wire Wire Line
+	12650 3200 14500 3200
+Wire Wire Line
+	12550 3100 14500 3100
+Wire Wire Line
+	5600 3050 7000 3050
+Wire Wire Line
+	5600 3150 7000 3150
+Wire Wire Line
+	5600 3250 7000 3250
+Wire Wire Line
+	5600 3450 7000 3450
+Wire Wire Line
+	5600 3350 7000 3350
+Wire Wire Line
+	5600 2850 7000 2850
+Wire Wire Line
+	6900 2450 6900 2550
+Wire Wire Line
+	6900 2550 7000 2550
+Wire Wire Line
+	5600 2450 6900 2450
+Wire Wire Line
+	5600 2650 7000 2650
+Wire Wire Line
+	6800 2550 6800 2750
+Wire Wire Line
+	6800 2750 7000 2750
+Wire Wire Line
+	5600 2550 6800 2550
+Wire Wire Line
+	5600 4650 7000 4650
+Wire Wire Line
+	5600 4750 7000 4750
+Wire Wire Line
+	5600 4850 7000 4850
+Wire Wire Line
+	5600 4950 7000 4950
+Wire Wire Line
+	5600 5050 7000 5050
+Connection ~ 6900 5150
+Wire Wire Line
+	6900 5150 6900 5250
+Wire Wire Line
+	6900 5350 6900 6750
+NoConn ~ 7000 5850
+NoConn ~ 7000 6250
+Wire Wire Line
+	7800 6850 7800 6900
+Wire Wire Line
+	7800 6900 8000 6900
+Wire Wire Line
+	8400 6900 8400 6850
+Wire Wire Line
+	8200 6850 8200 6900
+Connection ~ 8200 6900
+Wire Wire Line
+	8200 6900 8400 6900
+Wire Wire Line
+	8000 6850 8000 6900
+Connection ~ 8000 6900
+Wire Wire Line
+	8000 6900 8100 6900
+Wire Wire Line
+	8100 6950 8100 6900
+Connection ~ 8100 6900
+Wire Wire Line
+	8100 6900 8200 6900
+Wire Wire Line
+	7000 6450 6400 6450
+Text Label 6400 6450 0    50   ~ 0
+HDMI_CDC
+Wire Wire Line
+	3250 3600 3850 3600
+Text Label 3850 3600 2    50   ~ 0
+HDMI_CDC
+Wire Wire Line
+	9750 2750 9750 2850
 $EndSCHEMATC
