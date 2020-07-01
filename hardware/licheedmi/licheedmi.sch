@@ -1,4 +1,5 @@
 EESchema Schematic File Version 4
+LIBS:licheedmi-cache
 EELAYER 30 0
 EELAYER END
 $Descr A3 16535 11693
@@ -128,9 +129,6 @@ NoConn ~ 5600 2250
 NoConn ~ 5600 2350
 NoConn ~ 5600 5850
 NoConn ~ 5600 5950
-NoConn ~ 7000 5850
-NoConn ~ 7000 5950
-NoConn ~ 7000 6050
 NoConn ~ 7000 6150
 NoConn ~ 7000 6250
 NoConn ~ 7000 6350
@@ -748,8 +746,8 @@ Wire Wire Line
 Text Label 3850 3400 2    50   ~ 0
 RX0
 Wire Wire Line
-	3250 4000 3850 4000
-Text Label 3850 4000 2    50   ~ 0
+	3250 3900 3850 3900
+Text Label 3850 3900 2    50   ~ 0
 HDMI_INT
 $Comp
 L power:GND #PWR016
@@ -2869,8 +2867,29 @@ F 5 "C35445" H 1750 2600 50  0001 C CNN "MFR P/N"
 	1    1750 2600
 	1    0    0    -1  
 $EndComp
-NoConn ~ 3250 3700
-NoConn ~ 3250 3800
-NoConn ~ 3250 3900
 NoConn ~ 3250 3000
+Wire Wire Line
+	3850 3700 3250 3700
+Text Label 3850 3700 2    50   ~ 0
+I2S_BCLK
+Wire Wire Line
+	3850 3800 3250 3800
+Text Label 3850 3800 2    50   ~ 0
+I2S_LRCLK
+Wire Wire Line
+	3850 4000 3250 4000
+Text Label 3850 4000 2    50   ~ 0
+I2S_DO
+Wire Wire Line
+	6400 5850 7000 5850
+Text Label 6400 5850 0    50   ~ 0
+I2S_BCLK
+Wire Wire Line
+	6400 5950 7000 5950
+Text Label 6400 5950 0    50   ~ 0
+I2S_LRCLK
+Wire Wire Line
+	6400 6050 7000 6050
+Text Label 6400 6050 0    50   ~ 0
+I2S_DO
 $EndSCHEMATC
