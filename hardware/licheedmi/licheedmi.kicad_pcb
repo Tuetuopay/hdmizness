@@ -5058,7 +5058,7 @@
   (gr_text "Pushin' pixels\nain't we?" (at 150.7 98.4) (layer F.SilkS)
     (effects (font (size 0.82 0.82) (thickness 0.15)))
   )
-  (gr_text "Licheedmi v1.0, LicheeNano HDMI adapter,\nproudly made without Altium Disaster" (at 76 73.5) (layer F.SilkS) (tstamp 5EDB0D00)
+  (gr_text "Licheedmi v1.1, LicheeNano HDMI adapter,\nproudly made without Altium Disaster" (at 76 73.5) (layer F.SilkS) (tstamp 5EDB0D00)
     (effects (font (size 0.82 0.82) (thickness 0.15)) (justify left))
   )
   (gr_line (start 153.593912 88.719866) (end 153.59687 88.708967) (layer F.SilkS) (width 0.15))
