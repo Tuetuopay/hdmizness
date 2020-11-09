@@ -6,6 +6,16 @@ K UART
 F ${KIPRJMOD}/../../documentation/CH340DS1.pdf
 $ENDCMP
 #
+$CMP F1C100s
+D ARM926EJ-S SoC with 32MB of embedded SDRAM
+F https://linux-sunxi.org/images/b/ba/F1C100s_Datasheet_V1.0.pdf
+$ENDCMP
+#
+$CMP F1C200s
+D ARM926EJ-S SoC with 64MB of embedded SDRAM
+F https://linux-sunxi.org/images/1/11/Allwinner_F1C200s_Datasheet_V1.0.pdf
+$ENDCMP
+#
 $CMP HDMI_A_PCB
 D PCB-based HDMI type A connector
 K hdmi conn
@@ -97,6 +107,18 @@ $ENDCMP
 $CMP TS3DV20812
 D 2Gbps differential switch, 1:2 multiplexer/demlutiplexer with 3 side-band signals
 F ${KIPRJMOD}/../../documentation/TS3DV20812.pdf
+$ENDCMP
+#
+$CMP W25Q128JVEIQ
+D 128Mb Serial Flash Memory, Standard/Dual/Quad SPI, WSON-8
+K flash memory SPI QPI DTR
+F http://www.winbond.com/resource-files/w25q128jv_dtr%20revc%2003272018%20plus.pdf
+$ENDCMP
+#
+$CMP W25Q32JVEIQ
+D 32Mb Serial Flash Memory, Standard/Dual/Quad SPI, WSON-8
+K flash memory SPI
+F http://www.winbond.com/resource-files/w25q32jv%20revg%2003272018%20plus.pdf
 $ENDCMP
 #
 #End Doc Library
