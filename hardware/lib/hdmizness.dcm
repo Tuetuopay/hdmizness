@@ -126,6 +126,12 @@ D 2Gbps differential switch, 1:2 multiplexer/demlutiplexer with 3 side-band sign
 F ${KIPRJMOD}/../../documentation/TS3DV20812.pdf
 $ENDCMP
 #
+$CMP USB_A_PCB
+D PCB-Based USB Type A connector (should be 2mm thick)
+K connector USB
+F  ~
+$ENDCMP
+#
 $CMP W25Q128JVEIQ
 D 128Mb Serial Flash Memory, Standard/Dual/Quad SPI, WSON-8
 K flash memory SPI QPI DTR
