@@ -6,6 +6,11 @@ K UART
 F ${KIPRJMOD}/../../documentation/CH340DS1.pdf
 $ENDCMP
 #
+$CMP EA3058
+D Four Buck Converters Power Management IC
+F https://datasheet.lcsc.com/szlcsc/2006041834_Everanalog-IC-design-EA3058QDR_C575412.pdf
+$ENDCMP
+#
 $CMP F1C100s
 D ARM926EJ-S SoC with 32MB of embedded SDRAM
 F https://linux-sunxi.org/images/b/ba/F1C100s_Datasheet_V1.0.pdf
