@@ -6,6 +6,11 @@ K UART
 F ${KIPRJMOD}/../../documentation/CH340DS1.pdf
 $ENDCMP
 #
+$CMP EA3058
+D Four Buck Converters Power Management IC
+F https://datasheet.lcsc.com/szlcsc/2006041834_Everanalog-IC-design-EA3058QDR_C575412.pdf
+$ENDCMP
+#
 $CMP F1C100s
 D ARM926EJ-S SoC with 32MB of embedded SDRAM
 F https://linux-sunxi.org/images/b/ba/F1C100s_Datasheet_V1.0.pdf
@@ -16,16 +21,16 @@ D ARM926EJ-S SoC with 64MB of embedded SDRAM
 F https://linux-sunxi.org/images/1/11/Allwinner_F1C200s_Datasheet_V1.0.pdf
 $ENDCMP
 #
+$CMP FC-B1010RGBT-HG
+D RGB LED, anode/red/green/blue
+K LED RGB diode
+F https://datasheet.lcsc.com/szlcsc/2009100902_Foshan-NationStar-Optoelectronics-FC-B1010RGBT-HG_C158099.pdf
+$ENDCMP
+#
 $CMP HDMI_A_PCB
 D PCB-based HDMI type A connector
 K hdmi conn
 F https://en.wikipedia.org/wiki/HDMI
-$ENDCMP
-#
-$CMP LED_RABG
-D RGB LED, red/anode/blue/green
-K LED RGB diode
-F ~
 $ENDCMP
 #
 $CMP LicheeNano
