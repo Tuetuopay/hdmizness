@@ -22,6 +22,12 @@ K hdmi conn
 F https://en.wikipedia.org/wiki/HDMI
 $ENDCMP
 #
+$CMP LED_RABG
+D RGB LED, red/anode/blue/green
+K LED RGB diode
+F ~
+$ENDCMP
+#
 $CMP LicheeNano
 F ${KIPRJMOD}/../../documentation/lichee_nano_8.16_schematic.pdf
 $ENDCMP
@@ -36,6 +42,12 @@ $CMP LicheePiNano_LCD
 D Lichee Pi Nano LCD Flat-Flex Connector
 K connector
 F ${KIPRJMOD}/../../documentation/lichee_nano_8.16_schematic.pdf
+$ENDCMP
+#
+$CMP MHPA1515RGBDT
+D 1.5x1.5mm RGB LED
+K LED RGB diode
+F https://datasheet.lcsc.com/szlcsc/1907221506_MEIHUA-MHPA1515RGBDT_C404281.pdf
 $ENDCMP
 #
 $CMP SC6206B

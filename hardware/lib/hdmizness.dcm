@@ -38,6 +38,12 @@ K connector
 F ${KIPRJMOD}/../../documentation/lichee_nano_8.16_schematic.pdf
 $ENDCMP
 #
+$CMP MHPA1515RGBDT
+D 1.5x1.5mm RGB LED
+K LED RGB diode
+F https://datasheet.lcsc.com/szlcsc/1907221506_MEIHUA-MHPA1515RGBDT_C404281.pdf
+$ENDCMP
+#
 $CMP SC6206B
 D 250mA 5V Fixed LDO Linear Regulator, 1.8V, SOT-23
 K Fixed Voltage Regulator 250mA Positive LDO
