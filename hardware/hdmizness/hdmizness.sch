@@ -334,7 +334,7 @@ Wire Wire Line
 Text Label 3550 5950 0    50   ~ 0
 USB_DP
 Text Label 3550 5850 0    50   ~ 0
-USB_DM
+USB_DN
 Wire Wire Line
 	4050 4350 3550 4350
 Text Label 3550 4350 0    50   ~ 0
@@ -451,10 +451,10 @@ U 1 1 5FB646C4
 P 8650 6050
 F 0 "Y1" V 8696 5906 50  0000 R CNN
 F 1 "24M" V 8605 5906 50  0000 R CNN
-F 2 "Crystal:Crystal_SMD_3225-4Pin_3.2x2.5mm" V 8559 5906 50  0001 R CNN
+F 2 "Crystal:Crystal_SMD_2016-4Pin_2.0x1.6mm" V 8559 5906 50  0001 R CNN
 F 3 "~" H 8650 6050 50  0001 C CNN
-F 4 "C709181" H 8650 6050 50  0001 C CNN "LCSC P/N"
-F 5 "JF4024M00009T8188070" H 8650 6050 50  0001 C CNN "MFR P/N"
+F 4 "C708986" H 8650 6050 50  0001 C CNN "LCSC P/N"
+F 5 "CN4024M00009T8188011" H 8650 6050 50  0001 C CNN "MFR P/N"
 	1    8650 6050
 	0    -1   -1   0   
 $EndComp
@@ -1601,8 +1601,10 @@ U 1 1 60485C13
 P 8600 7500
 F 0 "SW1" V 8554 7648 50  0000 L CNN
 F 1 "SW_Push" V 8645 7648 50  0000 L CNN
-F 2 "Button_Switch_SMD:SW_SPST_SKQG_WithStem" H 8600 7700 50  0001 C CNN
+F 2 "hdmizness:1TS028A-2400-0603-CT" H 8600 7700 50  0001 C CNN
 F 3 "~" H 8600 7700 50  0001 C CNN
+F 4 "C481994" H 8600 7500 50  0001 C CNN "LCSC P/N"
+F 5 "1TS028A-2400-0603-CT" H 8600 7500 50  0001 C CNN "MFR P/N"
 	1    8600 7500
 	0    1    1    0   
 $EndComp
@@ -1613,8 +1615,6 @@ Wire Wire Line
 Connection ~ 8400 7700
 Wire Wire Line
 	8400 7700 8400 7800
-Text Notes 6750 7650 0    50   ~ 0
-A reset switch is needed\nsince there is no PMIC to reset\nthe CPU on e.g. reboot.
 $Comp
 L power:+3V3 #PWR08
 U 1 1 604F7E08
@@ -1643,6 +1643,8 @@ F 0 "U4" H 3300 7850 50  0000 C CNN
 F 1 "EA3058" H 3350 7750 50  0000 C CNN
 F 2 "Package_DFN_QFN:QFN-24-1EP_4x4mm_P0.5mm_EP2.6x2.6mm" H 2450 7650 50  0001 C CNN
 F 3 "https://datasheet.lcsc.com/szlcsc/2006041834_Everanalog-IC-design-EA3058QDR_C575412.pdf" H 2450 7650 50  0001 C CNN
+F 4 "C575412" H 2450 7650 50  0001 C CNN "LCSC P/N"
+F 5 "EA3058QDR" H 2450 7650 50  0001 C CNN "MFR P/N"
 	1    2450 7650
 	1    0    0    -1  
 $EndComp
@@ -2451,7 +2453,7 @@ Wire Wire Line
 Text Label 2100 6550 2    50   ~ 0
 USB_DP
 Text Label 2100 6650 2    50   ~ 0
-USB_DM
+USB_DN
 $Comp
 L Device:Polyfuse_Small F1
 U 1 1 615134FE
@@ -2527,4 +2529,6 @@ F 3 "~" H 3750 5550 50  0001 C CNN
 	1    3550 5550
 	1    0    0    1   
 $EndComp
+Text Notes 6750 7650 0    50   ~ 0
+A reset switch is needed\nsince there is no PMIC to reset\nthe CPU on e.g. reboot.
 $EndSCHEMATC
