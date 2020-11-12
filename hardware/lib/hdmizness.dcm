@@ -138,7 +138,19 @@ K flash memory SPI QPI DTR
 F http://www.winbond.com/resource-files/w25q128jv_dtr%20revc%2003272018%20plus.pdf
 $ENDCMP
 #
+$CMP W25Q128JVPIQ
+D 128Mb Serial Flash Memory, Standard/Dual/Quad SPI, WSON-8
+K flash memory SPI QPI DTR
+F http://www.winbond.com/resource-files/w25q128jv_dtr%20revc%2003272018%20plus.pdf
+$ENDCMP
+#
 $CMP W25Q32JVEIQ
+D 32Mb Serial Flash Memory, Standard/Dual/Quad SPI, WSON-8
+K flash memory SPI
+F http://www.winbond.com/resource-files/w25q32jv%20revg%2003272018%20plus.pdf
+$ENDCMP
+#
+$CMP W25Q32JVPIQ
 D 32Mb Serial Flash Memory, Standard/Dual/Quad SPI, WSON-8
 K flash memory SPI
 F http://www.winbond.com/resource-files/w25q32jv%20revg%2003272018%20plus.pdf
