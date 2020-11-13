@@ -37,17 +37,6 @@ F 3 "https://en.wikipedia.org/wiki/HDMI" H 14525 5050 50  0001 C CNN
 $EndComp
 $Comp
 L hdmizness:F1C100s U1
-U 1 1 5FA908A0
-P 4150 2650
-F 0 "U1" H 6150 2815 50  0000 C CNN
-F 1 "F1C100s" H 6150 2724 50  0000 C CNN
-F 2 "hdmizness:QFN-88_EP_10x10_Pitch0.4mm" H 4150 2650 50  0001 C CNN
-F 3 "https://linux-sunxi.org/images/b/ba/F1C100s_Datasheet_V1.0.pdf" H 4150 2650 50  0001 C CNN
-	1    4150 2650
-	1    0    0    -1  
-$EndComp
-$Comp
-L hdmizness:F1C100s U1
 U 2 1 5FA953BA
 P 10700 8000
 F 0 "U1" H 11250 8165 50  0000 C CNN
@@ -311,10 +300,6 @@ Text Label 3550 5950 0    50   ~ 0
 USB_DP
 Text Label 3550 5850 0    50   ~ 0
 USB_DN
-Wire Wire Line
-	4050 4350 3550 4350
-Text Label 3550 4350 0    50   ~ 0
-HDMI_INT
 NoConn ~ 4050 6150
 NoConn ~ 4050 6250
 NoConn ~ 4050 6350
@@ -2327,7 +2312,6 @@ NoConn ~ 4050 5650
 NoConn ~ 4050 4450
 NoConn ~ 4050 4550
 NoConn ~ 4050 4650
-NoConn ~ 4050 4750
 NoConn ~ 4050 2950
 $Comp
 L hdmizness:USB_A_PCB J2
@@ -2502,22 +2486,16 @@ Connection ~ 8250 2150
 Wire Wire Line
 	8250 2150 8250 2250
 $Comp
-L power:GND #PWR?
+L power:GND #PWR0101
 U 1 1 61F1EB39
 P 8250 2250
-F 0 "#PWR?" H 8250 2000 50  0001 C CNN
+F 0 "#PWR0101" H 8250 2000 50  0001 C CNN
 F 1 "GND" H 8255 2077 50  0000 C CNN
 F 2 "" H 8250 2250 50  0001 C CNN
 F 3 "" H 8250 2250 50  0001 C CNN
 	1    8250 2250
 	-1   0    0    -1  
 $EndComp
-NoConn ~ 4050 3750
-NoConn ~ 4050 3850
-NoConn ~ 4050 3950
-NoConn ~ 4050 4050
-NoConn ~ 4050 4150
-NoConn ~ 4050 4250
 Entry Wire Line
 	8750 4850 8850 4750
 Entry Wire Line
@@ -2632,8 +2610,106 @@ Entry Wire Line
 	9450 3450 9550 3550
 Wire Bus Line
 	8850 1750 9450 1750
+Text Label 3550 4750 0    50   ~ 0
+HDMI_INT
+Wire Wire Line
+	4050 4750 3550 4750
+$Comp
+L hdmizness:F1C100s U1
+U 1 1 5FA908A0
+P 4150 2650
+F 0 "U1" H 6150 2815 50  0000 C CNN
+F 1 "F1C100s" H 6150 2724 50  0000 C CNN
+F 2 "hdmizness:QFN-88_EP_10x10_Pitch0.4mm" H 4150 2650 50  0001 C CNN
+F 3 "https://linux-sunxi.org/images/b/ba/F1C100s_Datasheet_V1.0.pdf" H 4150 2650 50  0001 C CNN
+	1    4150 2650
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3V3 #PWR?
+U 1 1 627DC501
+P 3950 3700
+F 0 "#PWR?" H 3950 3550 50  0001 C CNN
+F 1 "+3V3" H 4100 3750 50  0000 C CNN
+F 2 "" H 3950 3700 50  0001 C CNN
+F 3 "" H 3950 3700 50  0001 C CNN
+	1    3950 3700
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	3950 3700 3950 3750
+Wire Wire Line
+	3950 3750 4050 3750
+$Comp
+L power:GND #PWR?
+U 1 1 6281590E
+P 3850 4400
+F 0 "#PWR?" H 3850 4150 50  0001 C CNN
+F 1 "GND" H 3700 4350 50  0000 C CNN
+F 2 "" H 3850 4400 50  0001 C CNN
+F 3 "" H 3850 4400 50  0001 C CNN
+	1    3850 4400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3850 3850 4050 3850
+Wire Wire Line
+	3850 4400 3850 4250
+NoConn ~ 4050 4350
+Wire Wire Line
+	4050 3950 3850 3950
+Connection ~ 3850 3950
+Wire Wire Line
+	3850 3950 3850 3850
+Wire Wire Line
+	4050 4050 3850 4050
+Connection ~ 3850 4050
+Wire Wire Line
+	3850 4050 3850 3950
+Connection ~ 3850 4150
+Wire Wire Line
+	3850 4150 3850 4050
+Wire Wire Line
+	3850 4150 4050 4150
+Wire Wire Line
+	4050 4250 3850 4250
+Connection ~ 3850 4250
+Wire Wire Line
+	3850 4250 3850 4150
+Text Notes 3650 3750 2    50   ~ 0
+0
+Text Notes 3650 3850 2    50   ~ 0
+1
+Text Notes 3650 3950 2    50   ~ 0
+2
+Text Notes 3650 4050 2    50   ~ 0
+0
+Text Notes 3650 4150 2    50   ~ 0
+1
+Text Notes 3650 4250 2    50   ~ 0
+2
+Wire Notes Line
+	3550 3700 3500 3750
+Wire Notes Line
+	3550 3950 3500 3900
+Wire Notes Line
+	3500 3750 3500 3900
+Wire Notes Line
+	3550 4250 3500 4200
+Text Notes 3250 3850 0    50   ~ 0
+Major
+Text Notes 3250 4150 0    50   ~ 0
+Minor
+Text Notes 3000 4500 0    50   ~ 0
+Board revision\nhard straps
+Wire Notes Line
+	3500 4050 3500 4200
+Wire Notes Line
+	3550 4000 3500 4050
 Wire Bus Line
 	8850 1750 8850 4750
 Wire Bus Line
 	9450 1750 9450 5850
+Text Notes 3050 4000 0    50   ~ 0
+v1.0
 $EndSCHEMATC
