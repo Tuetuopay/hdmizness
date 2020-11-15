@@ -12,31 +12,49 @@ pipeline:
     group: fabrication-outputs
     commands:
       - python -m kicad-automation.eeschema.export_bom --schematic hardware/licheedmi/licheedmi.sch --output_dir out/bom export
+      - mv out/bom/bom.csv out/bom/licheedmi-bom.csv
+      - python -m kicad-automation.eeschema.export_bom --schematic hardware/hdmizness/hdmizness.sch --output_dir out/bom export
+      - mv out/bom/bom.csv out/bom/hdmizness-bom.csv
 
   ibom:
     image: kicad-automation:4layers
     group: fabrication-outputs
     commands:
       - sh /opt/InteractiveHtmlBom/make-interactive-bom hardware/licheedmi/licheedmi.kicad_pcb
-      - mv /output/bom/interactive/ibom.html out/bom/interactive/
+      - mv /output/bom/interactive/ibom.html out/bom/licheedmi-ibom.csv
+      - sh /opt/InteractiveHtmlBom/make-interactive-bom hardware/hdmizness/hdmizness.kicad_pcb
+      - mv /output/bom/interactive/ibom.html out/bom/hdmizness-ibom.csv
 
   schematic:
     image: kicad-automation:4layers
     group: fabrication-outputs
     commands:
-      - python -m kicad-automation.eeschema.schematic --schematic hardware/licheedmi/licheedmi.sch --output_dir out/schematic/pdf export --all_pages -f pdf
+      - python -m kicad-automation.eeschema.schematic --schematic hardware/licheedmi/licheedmi.sch --output_dir out/schematic export --all_pages -f pdf
+      - python -m kicad-automation.eeschema.schematic --schematic hardware/hdmizness/hdmizness.sch --output_dir out/schematic export --all_pages -f pdf
 
-  gerbers:
+  gerbers-licheedmi:
     image: kicad-automation:4layers
     group: fabrication-outputs
     commands:
       - kiplot -b hardware/licheedmi/licheedmi.kicad_pcb -c /opt/etc/kiplot/generic_plot.kiplot.yaml -v -d out
 
-  zip-gerbers:
+  gerbers-hdmizness:
+    image: kicad-automation:4layers
+    group: fabrication-outputs
+    commands:
+      - kiplot -b hardware/hdmizness/hdmizness.kicad_pcb -c /opt/etc/kiplot/generic_plot.kiplot.yaml -v -d out
+
+  zip-gerbers-licheedmi:
     image: kramos/alpine-zip
     commands:
       - cd out/layout/gerber
-      - zip licheedmi.zip *_Cu.gbr *_Mask.gbr *_Paste.gbr *_SilkS.gbr *Edge_Cuts.gbr *-drl.gbr
+      - zip licheedmi.zip licheedmi-*_Cu.gbr licheedmi-*_Mask.gbr licheedmi-*_Paste.gbr licheedmi-*_SilkS.gbr licheedmi-*Edge_Cuts.gbr licheedmi-*-drl.gbr
+
+  zip-gerbers-hdmizness:
+    image: kramos/alpine-zip
+    commands:
+      - cd out/layout/gerber
+      - zip hdmizness.zip hdmizness-*_Cu.gbr hdmizness-*_Mask.gbr hdmizness-*_Paste.gbr hdmizness-*_SilkS.gbr hdmizness-*Edge_Cuts.gbr hdmizness-*-drl.gbr
 
   revs:
     image: alpine
