@@ -2,7 +2,7 @@
 
   (general
     (thickness 0.8)
-    (drawings 19)
+    (drawings 20)
     (tracks 991)
     (zones 0)
     (modules 66)
@@ -7295,6 +7295,9 @@
     )
   )
 
+  (gr_text JLCJLCJLCJLC (at 152.68 98.18) (layer F.SilkS)
+    (effects (font (size 0.8 0.8) (thickness 0.15)))
+  )
   (gr_text "Board version hard straps\nare not all directly connected to\nthe GND underneath the CPU\nfor easier bodging, if the need arises." (at 147.35 96.6) (layer Cmts.User)
     (effects (font (size 0.5 0.5) (thickness 0.1)))
   )
