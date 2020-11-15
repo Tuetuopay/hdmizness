@@ -25,11 +25,16 @@ pipeline:
       - sh /opt/InteractiveHtmlBom/make-interactive-bom hardware/hdmizness/hdmizness.kicad_pcb
       - mv /output/bom/interactive/ibom.html out/bom/hdmizness-ibom.csv
 
-  schematic:
+  schematic-licheedmi:
     image: kicad-automation:4layers
     group: fabrication-outputs
     commands:
       - python -m kicad-automation.eeschema.schematic --schematic hardware/licheedmi/licheedmi.sch --output_dir out/schematic export --all_pages -f pdf
+
+  schematic-hdmizness:
+    image: kicad-automation:2layers
+    group: fabrication-outputs
+    commands:
       - python -m kicad-automation.eeschema.schematic --schematic hardware/hdmizness/hdmizness.sch --output_dir out/schematic export --all_pages -f pdf
 
   gerbers-licheedmi:
