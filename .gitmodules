@@ -1,0 +1,3 @@
+[submodule "software/buildroot"]
+	path = software/buildroot
+	url = https://github.com/buildroot/buildroot.git
