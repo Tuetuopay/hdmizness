@@ -1,0 +1,43 @@
+/*
+ * Copyright (C) 2020 Tuetuopay <tuetuopay@me.com>
+ *
+ * SPDX-License-Identifier: (GPL-2.0+ OR X11)
+ */
+
+#include "hdmizness.dtsi"
+
+/ {
+	model = "HDMIzness v2";
+};
+
+&tcon0_out {
+	tcon0_out_hdmi: endpoint@0 {
+		reg = <0>;
+		remote-endpoint = <&hdmi_bridge_in>;
+	};
+};
+
+&i2c0 {
+	hdmi-transmitter@39 {
+		compatible = "sil,sii9022";
+		reg = <0x39>;
+		reset-gpios = <&pio 4 9 GPIO_ACTIVE_LOW>; /* PE9 */
+
+		#sound-dai-cells = <0>;
+
+		status = "okay";
+
+		ports {
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			port@0 {
+				reg = <0>;
+				hdmi_bridge_in: endpoint {
+					remote-endpoint = <&tcon0_out_hdmi>;
+				};
+			};
+		};
+	};
+};
+

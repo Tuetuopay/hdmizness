@@ -1,0 +1,57 @@
+/*
+ * Copyright (C) 2020 Tuetuopay <tuetuopay@me.com>
+ *
+ * SPDX-License-Identifier: (GPL-2.0+ OR X11)
+ */
+
+#include "hdmizness.dtsi"
+
+#include <dt-bindings/display/tda998x.h>
+
+/ {
+	model = "HDMIzness v1";
+};
+
+&pio {
+	tda_int_pins: tda-int-pins {
+		pins = "PE10";
+		function = "gpio_in";
+	};
+};
+
+&tcon0_out {
+	tcon0_out_hdmi: endpoint@0 {
+		reg = <0>;
+		remote-endpoint = <&hdmi_bridge_in>;
+	};
+};
+
+&i2c0 {
+	hdmi-transmitter@70 {
+		compatible = "nxp,tda998x";
+		reg = <0x70>;
+
+		pinctrl-names = "default", "off";
+		pinctrl-0 = <&tda_int_pins>;
+
+		/* Convert 24bit BGR to RGB, e.g. cross red and blue wiring */
+		/* video-ports = <0x234501>; */
+
+		#sound-dai-cells = <0>;
+		audio-ports = <TDA998x_I2S 0x03>;
+
+		status = "okay";
+
+		ports {
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			port@0 {
+				reg = <0>;
+				hdmi_bridge_in: endpoint {
+					remote-endpoint = <&tcon0_out_hdmi>;
+				};
+			};
+		};
+	};
+};

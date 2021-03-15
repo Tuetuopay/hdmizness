@@ -1,0 +1,19 @@
+commit 721c5a5bfb680f8802e7a0230ca95ca64fae9f35
+Author: Tuetuopay <tuetuopay@me.com>
+Date:   Mon Dec 14 00:45:18 2020 +0100
+
+    arm/dts: Add HDMIzness device tree
+
+diff --git a/arch/arm/dts/Makefile b/arch/arm/dts/Makefile
+index 03d8056f31..081aade86c 100644
+--- a/arch/arm/dts/Makefile
++++ b/arch/arm/dts/Makefile
+@@ -917,6 +917,8 @@ dtb-$(CONFIG_TARGET_DURIAN) += phytium-durian.dtb
+ 
+ dtb-$(CONFIG_TARGET_PRESIDIO_ASIC) += ca-presidio-engboard.dtb
+ 
++dtb-y += hdmizness.dtb
++
+ targets += $(dtb-y)
+ 
+ # Add any required device tree compiler flags here

@@ -1,0 +1,138 @@
+/*
+ * Copyright (C) 2020 Tuetuopay <tuetuopay@me.com>
+ *
+ * SPDX-License-Identifier: (GPL-2.0+ OR X11)
+ */
+
+/dts-v1/;
+#include "suniv-f1c100s.dtsi"
+#include <dt-bindings/gpio/gpio.h>
+
+/ {
+	model = "HDMIzness";
+	compatible = "tuetuopay,hdmizness", "allwinner,suniv-f1c100s";
+
+	aliases {
+		serial0 = &uart0;
+		spi0 = &spi0;
+	};
+
+	chosen {
+		stdout-path = "serial0:115200n8";
+	};
+
+	leds {
+		compatible = "gpio-leds";
+		pinctrl-names = "default";
+		pinctrl-0 = <&led_pins>;
+
+		red {
+			label = "red";
+			gpios = <&pio 5 3 GPIO_ACTIVE_LOW>;
+			default-state = "on";
+		};
+
+		green {
+			label = "green";
+			gpios = <&pio 5 1 GPIO_ACTIVE_LOW>;
+			default-state = "on";
+		};
+
+		blue {
+			label = "blue";
+			gpios = <&pio 5 0 GPIO_ACTIVE_LOW>;
+			default-state = "on";
+		};
+	};
+
+	reg_vcc3v3: vcc3v3 {
+		compatible = "regulator-fixed";
+		regulator-name = "vcc3v3";
+		regulator-min-microvolt = <3300000>;
+		regulator-max-microvolt = <3300000>;
+	};
+};
+
+&pio {
+	uart0_pf_pins: uart0-pf-pins {
+		pins = "PF2", "PF4";
+		function = "uart0";
+	};
+
+	i2s_pa_pins: i2s-pa-pins {
+		pins = "PA0", "PA1", "PA3";
+		function = "i2s";
+	};
+
+	led_pins: led-pins {
+		pins = "PF0", "PF1", "PF3";
+		function = "gpio_out";
+	};
+};
+
+&otg_sram {
+	status = "okay";
+};
+
+&spi0 {
+	pinctrl-names = "default";
+	pinctrl-0 = <&spi0_pins_a>;
+	status = "okay";
+
+	flash@0 {
+		#address-cells = <1>;
+		#size-cells = <1>;
+		compatible = "winbond,w25q128", "jedec,spi-nor";
+		reg = <0>;
+		spi-max-frequency = <40000000>;
+
+		partitions {
+			compatible = "fixed-partitions";
+			#address-cells = <1>;
+			#size-cells = <1>;
+
+			partition@0 {
+				label = "u-boot";
+				reg = <0x000000 0x80000>;
+			};
+
+			partition@110000 {
+				label = "rootubi";
+				reg = <0x80000 0xf80000>;
+			};
+		};
+	};
+};
+
+&uart0 {
+	pinctrl-names = "default";
+	pinctrl-0 = <&uart0_pf_pins>;
+	status = "okay";
+};
+
+&i2c0 {
+	status = "okay";
+};
+
+&usb_otg {
+	dr_mode = "peripheral";
+	status = "okay";
+};
+
+&usbphy {
+	status = "okay";
+};
+
+&be0 {
+	status = "okay";
+};
+
+&de {
+	status = "okay";
+};
+
+&tcon0 {
+	pinctrl-names = "default";
+	pinctrl-0 = <&lcd_rgb666_pins>;
+	status = "okay";
+};
