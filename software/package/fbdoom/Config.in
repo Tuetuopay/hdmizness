@@ -1,0 +1,5 @@
+config BR2_PACKAGE_FBDOOM
+	bool "fbDOOM"
+	help
+		The DOOM game, for running on the Linux fbdev.
+	select BR2_PACKAGE_DOOM_WAD
