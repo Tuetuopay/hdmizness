@@ -1,0 +1,144 @@
+diff --git a/fbdoom/i_video_fbdev.c b/fbdoom/i_video_fbdev.c
+index c6e5925..cde0195 100644
+--- a/fbdoom/i_video_fbdev.c
++++ b/fbdoom/i_video_fbdev.c
+@@ -47,12 +47,14 @@ rcsid[] = "$Id: i_x.c,v 1.6 1997/02/03 22:45:10 b1 Exp $";
+ #include <sys/socket.h>
+ #include <linux/fb.h>
+ #include <sys/ioctl.h>
++#include <sys/mman.h>
+ 
+ //#define CMAP256
+ 
+ struct fb_var_screeninfo fb = {};
+ int fb_scaling = 1;
+ int usemouse = 0;
++int do_mmap = 0;
+ 
+ struct color {
+     uint32_t b:8;
+@@ -138,6 +141,20 @@ void cmap_to_fb(uint8_t * out, uint8_t * in, int in_pixels)
+     uint32_t pix;
+     uint16_t r, g, b;
+ 
++    if (fb.bits_per_pixel == 32) {
++        // Fastpath for RGBA 8888
++        uint32_t *out32 = (uint32_t*)out;
++        for (i = 0; i < in_pixels; i++) {
++            c = colors[*(in++)];
++            pix = (c.r << fb.red.offset | c.g << fb.green.offset | c.b << fb.blue.offset);
++
++            for (k = 0; k < fb_scaling; k++)
++                *(out32++) = pix;
++        }
++
++        return;
++    }
++
+     for (i = 0; i < in_pixels; i++)
+     {
+         c = colors[*in];  /* R:8 G:8 B:8 format! */
+@@ -195,12 +219,24 @@ void I_InitGraphics (void)
+         printf("I_InitGraphics: Auto-scaling factor: %d\n", fb_scaling);
+     }
+ 
++    do_mmap = !M_CheckParm("-nommap");
+ 
+     /* Allocate screen to draw to */
+-	I_VideoBuffer = (byte*)Z_Malloc (SCREENWIDTH * SCREENHEIGHT, PU_STATIC, NULL);  // For DOOM to draw on
+-	I_VideoBuffer_FB = (byte*)malloc(fb.xres * fb.yres * (fb.bits_per_pixel/8));     // For a single write() syscall to fbdev
++    I_VideoBuffer = (byte*)Z_Malloc (SCREENWIDTH * SCREENHEIGHT, PU_STATIC, NULL);  // For DOOM to draw on
++    if (do_mmap) {
++        I_VideoBuffer_FB = mmap(NULL,
++                                fb.xres * fb.yres * fb.bits_per_pixel / 8,
++                                PROT_READ | PROT_WRITE,
++                                MAP_SHARED | MAP_NORESERVE,
++                                fd_fb,
++                                0);
++        memset(I_VideoBuffer_FB, 0, fb.xres * fb.yres * fb.bits_per_pixel / 8);
++    } else {
++        // For a single write() syscall to fbdev
++        I_VideoBuffer_FB = (byte*)malloc(fb.xres * fb.yres * (fb.bits_per_pixel/8));
++    }
+ 
+-	screenvisible = true;
++    screenvisible = true;
+ 
+     extern int I_InitInput(void);
+     I_InitInput();
+@@ -402,18 +438,21 @@ void I_UpdateNoBlit (void)
+ 
+ void I_FinishUpdate (void)
+ {
+-    int y;
+-    int x_offset, y_offset, x_offset_end;
++    int y, dy;
++    int x_offset, y_offset, x_offset_end, bpp, line_w;
+     unsigned char *line_in, *line_out;
+ 
++    bpp = fb.bits_per_pixel / 8;
+     /* Offsets in case FB is bigger than DOOM */
+     /* 600 = fb heigt, 200 screenheight */
+     /* 600 = fb heigt, 200 screenheight */
+     /* 2048 =fb width, 320 screenwidth */
+-    y_offset     = (((fb.yres - (SCREENHEIGHT * fb_scaling)) * fb.bits_per_pixel/8)) / 2;
+-    x_offset     = (((fb.xres - (SCREENWIDTH  * fb_scaling)) * fb.bits_per_pixel/8)) / 2; // XXX: siglent FB hack: /4 instead of /2, since it seems to handle the resolution in a funny way
++    y_offset     = (fb.yres - SCREENHEIGHT * fb_scaling) * bpp / 2;
++    // XXX: siglent FB hack: /4 instead of /2, since it seems to handle the resolution in a funny way
++    x_offset     = (fb.xres - SCREENWIDTH  * fb_scaling) * bpp / 2;
+     //x_offset     = 0;
+-    x_offset_end = ((fb.xres - (SCREENWIDTH  * fb_scaling)) * fb.bits_per_pixel/8) - x_offset;
++    x_offset_end = (fb.xres - SCREENWIDTH  * fb_scaling) * bpp - x_offset;
++    line_w = SCREENWIDTH * fb_scaling * bpp;
+ 
+     /* DRAW SCREEN */
+     line_in  = (unsigned char *) I_VideoBuffer;
+@@ -421,29 +460,31 @@ void I_FinishUpdate (void)
+ 
+     y = SCREENHEIGHT;
+ 
+-    while (y--)
+-    {
+-        int i;
+-        for (i = 0; i < fb_scaling; i++) {
++    if (do_mmap)
++        line_out += y_offset * fb.xres;
++
++    while (y--) {
++        line_out += x_offset;
++
++        cmap_to_fb((void*)line_out, (void*)line_in, SCREENWIDTH);
++
++        uint8_t *line = line_out;
++        line_out += line_w + x_offset_end;
++
++        for (dy = 0; dy < fb_scaling - 1; dy++) {
+             line_out += x_offset;
+-#ifdef CMAP256
+-            for (fb_scaling == 1) {
+-                memcpy(line_out, line_in, SCREENWIDTH); /* fb_width is bigger than Doom SCREENWIDTH... */
+-            } else {
+-                //XXX FIXME fb_scaling support!
+-            }
+-#else
+-            //cmap_to_rgb565((void*)line_out, (void*)line_in, SCREENWIDTH);
+-            cmap_to_fb((void*)line_out, (void*)line_in, SCREENWIDTH);
+-#endif
+-            line_out += (SCREENWIDTH * fb_scaling * (fb.bits_per_pixel/8)) + x_offset_end;
++            memcpy(line_out, line, line_w);
++            line_out += line_w + x_offset_end;
+         }
+         line_in += SCREENWIDTH;
+     }
+ 
+     /* Start drawing from y-offset */
+-    lseek(fd_fb, y_offset * fb.xres, SEEK_SET);
+-    write(fd_fb, I_VideoBuffer_FB, (SCREENHEIGHT * fb_scaling * (fb.bits_per_pixel/8)) * fb.xres); /* draw only portion used by doom + x-offsets */
++    if (!do_mmap) {
++        lseek(fd_fb, y_offset * fb.xres, SEEK_SET);
++        // draw only portion used by doom + x-offsets
++        write(fd_fb, I_VideoBuffer_FB, (SCREENHEIGHT * fb_scaling * bpp) * fb.xres);
++    }
+ }
+ 
+ //
