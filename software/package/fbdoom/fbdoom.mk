@@ -9,7 +9,7 @@ FBDOOM_SITE = $(call github,maximevince,fbDOOM,$(FBDOOM_VERSION))
 FBDOOM_LICENSE = Unknown
 
 define FBDOOM_BUILD_CMDS
-	$(MAKE) $(TARGET_CONFIGURE_OPTS) -C $(@D)/fbdoom
+	$(MAKE) $(TARGET_CONFIGURE_OPTS) NOSDL=1 -C $(@D)/fbdoom
 endef
 
 define FBDOOM_INSTALL_TARGET_CMDS
