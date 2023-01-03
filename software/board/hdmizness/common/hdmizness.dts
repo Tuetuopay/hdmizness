@@ -105,12 +105,3 @@
 	status = "okay";
 };
 
-&usb_otg {
-	dr_mode = "peripheral";
-	status = "okay";
-};
-
-&usbphy {
-	usb0_id_det-gpio = <&pio 4 2 GPIO_ACTIVE_HIGH>; /* PE2 */
-	status = "okay";
-};
