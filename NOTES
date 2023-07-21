@@ -1,0 +1,12 @@
+NOTES
+
+u-boot:
+- missing CONFIG_SYS_LOAD_ADDR, set to 0x81000000
+- missing CONFIG_SPL_STACK_R_ADDR, set to 0x81e00000
+- missing CONFIG_SPL_BSS_START_ADDR, set to 0x81f80000
+- missing CONFIG_SYS_MALLOC_LEN, set to 0x108000
+
+set CONFIG_MMC_SUNXI_SLOT_EXTRA to 1
+
+USB VIDS ideas
+- 049a	Gandalf Technologies, Ltd
