@@ -1,4 +1,4 @@
-BRMAKE = $(MAKE) -C buildroot BR2_EXTERNAL
+BRMAKE = $(MAKE) -C buildroot BR2_EXTERNAL=../
 
 buildroot/output/images/flash.bin: buildroot/.config
 	$(BRMAKE)
