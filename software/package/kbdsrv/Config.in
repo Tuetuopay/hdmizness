@@ -1,0 +1,7 @@
+config BR2_PACKAGE_KBDSRV
+	bool "kbdsrv"
+	depends on BR2_PACKAGE_HOST_RUSTC_TARGET_ARCH_SUPPORTS
+	select BR2_PACKAGE_HOST_RUSTC
+	help
+		kbdsrv utility to forward inputs from a host over the
+		network, injected as evdev events.

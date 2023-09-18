@@ -1,0 +1,23 @@
+#!/bin/sh
+
+case "$1" in
+	start)
+		printf "Starting kbdsrv: "
+		start-stop-daemon -S -b -x /usr/bin/kbdsrv
+		[ $? = 0 ] && echo OK || echo FAIL
+		;;
+	stop)
+		printf "Stopping kbdsrv: "
+		start-stop-daemon -K -q -x /usr/bin/kbdsrv
+		[ $? = 0 ] && echo OK || echo FAIL
+		;;
+	restart|reload)
+		$0 stop
+		$0 start
+		;;
+	*)
+		echo "Usage: $0 {start|stop|restart}"
+		exit 1
+esac
+
+exit 0

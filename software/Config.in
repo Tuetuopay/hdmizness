@@ -1,3 +1,4 @@
 source "$BR2_EXTERNAL_HDMIZNESS_PATH/package/fbdoom/Config.in"
 source "$BR2_EXTERNAL_HDMIZNESS_PATH/package/sunxi-tools-f1c100s/Config.in"
 source "$BR2_EXTERNAL_HDMIZNESS_PATH/package/sunxi-tools-f1c100s/Config.in.host"
+source "$BR2_EXTERNAL_HDMIZNESS_PATH/package/kbdsrv/Config.in"

@@ -4,8 +4,8 @@ The business card runs a plain Buildroot build, with proper patches.
 
 ## Compiling
 
-You need a working compiler, along with the required deps for a buildroot build. On Debian 11 this
-would be:
+You need a working C compiler, a working Rust compiler with Cargo, along with the required deps for
+a buildroot build. On Debian 11 this would be:
 
 - build-essentials
 - rsync
