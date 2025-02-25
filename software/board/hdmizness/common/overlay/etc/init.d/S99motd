@@ -1,0 +1,67 @@
+#!/bin/sh
+
+rst='\033[0m'
+bld='\033[1m'
+red='\033[31m'
+grn='\033[32m'
+mgt='\033[35m'
+off='\033[?25l'
+
+# On F1C200s, we have enough memory for a 720p output, which gives a few lines of text around doom.
+# On F1C100s, we don't have this luxury, with a 768x432 output. That is one line above, one below.
+
+function pr_tty() {
+	echo -ne "$@" > /dev/tty0
+}
+
+function motd_f1c100s() {
+	pr_tty "\033[0;0H"
+	pr_tty "Welcome to ${bld}HDMIzness${rst}, a business card that runs Linux that runs ${red}DOOM${rst}."
+	pr_tty "\033[28;0H"
+	pr_tty "Keyboard controls: ${mgt}http://10.17.77.1:8080/kbd${rst}. "
+	pr_tty "SSH: ${grn}root:root@10.17.77.1${rst}."
+}
+
+function motd_f1c200s() {
+	pr_tty "\033[0;0H"
+	pr_tty "Welcome to ${bld}HDMIzness${rst}, a business card that runs Linux that runs ${red}DOOM${rst}."
+	pr_tty "\033[3;0H"
+	pr_tty 'The captive portal that opened on your computer will forward your inputs to DOOM, happy playing! '
+	pr_tty "If missing, visit ${mgt}http://10.17.77.1:8080/kbd${rst}."
+	pr_tty '\033[44;0H'
+	pr_tty "You can also SSH right into the card with ${grn}ssh root@10.17.77.1${rst}, password "
+	pr_tty "root, and tinker to your heart's content."
+}
+
+function motd() {
+	if grep 1280x720 /proc/cmdline > /dev/null; then
+		motd_f1c200s
+	else
+		motd_f1c100s
+	fi
+	pr_tty "${off}"
+}
+
+case "$1" in
+	start)
+		# DOOM takes a bit to start up and clear the screen, so wait for around that long.
+		sleep 1
+		motd
+		;;
+	start-now)
+		motd
+		;;
+	stop)
+		echo -ne '\033[2J' > /dev/tty0
+		;;
+	restart|reload)
+		$0 stop
+		$0 start
+		;;
+	*)
+		echo "Usage: $0 {start|stop|restart}"
+		exit 1
+		;;
+esac
+
+exit 0
