@@ -1,0 +1,24 @@
+#!/bin/sh
+
+case "$1" in
+	start)
+		printf "Starting DOOM: "
+		start-stop-daemon -S -b -x /usr/bin/fbdoom -- -iwad /usr/share/games/doom/doom1.wad
+		[ $? = 0 ] && echo OK || echo FAIL
+		;;
+	stop)
+		printf "Stopping DOOM: "
+		start-stop-daemon -K -q -x /usr/bin/fbdoom
+		[ $? = 0 ] && echo OK || echo FAIL
+		;;
+	restart|reload)
+		$0 stop
+		$0 start
+		;;
+	*)
+		echo "Usage: $0 {start|stop|restart}"
+		exit 1
+		;;
+esac
+
+exit 0
