@@ -1,0 +1,64 @@
+#!/bin/sh
+#
+# Start USB gadgets
+#
+
+case "$1" in
+	start)
+		echo Setting up USB OTG
+
+		echo Mounting configfs at /config
+		mkdir -p /config
+		mount none /config -t configfs
+		cd /config/usb_gadget
+
+		echo Create gadget hdmizness
+		mkdir -p hdmizness
+		cd hdmizness
+
+		echo Configure gadget
+		echo 0x1777 > idVendor
+		echo 0xcafe > idProduct
+		mkdir -p strings/0x409
+		grep Serial /proc/cpuinfo | awk '{ print $3 }' > strings/0x409/serialnumber
+		echo Tuetuopay > strings/0x409/manufacturer
+		echo HDMIzness > strings/0x409/product
+
+		echo Configure ethernet gadget
+		mkdir -p configs/ncm.2/strings/0x409
+		mkdir -p functions/ncm.usb0
+		ln -s functions/ncm.usb0 configs/ncm.2
+
+		echo Enabling the gadget
+		udc=$(ls /sys/class/udc | head -n 1)
+		if [ "$udc" -eq "" ]; then
+			echo Error: no UDC device found
+			exit 1
+		fi
+		echo Using UDC device $udc
+		echo $udc > UDC
+		;;
+	stop)
+		echo Tearing down USB OTG
+		cd /config/usb_gadget/hdmizness
+
+		echo Disabling the gadget
+		echo > UDC
+
+		echo Unconfigure ethernet gadget
+		rm configs/ncm.2/ncm.usb0
+		rmdir functions/ncm.usb0
+		rmdir configs/ncm.2/strings/0x409
+
+		echo Unconfigure gadget
+		rmdir strings/0x409
+		;;
+	restart|reload)
+		"$0" stop
+		"$0" start
+		;;
+	*)
+		echo "Usage: $0 {start|stop|restart}"
+esac
+
+exit $?
