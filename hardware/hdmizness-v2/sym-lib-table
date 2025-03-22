@@ -1,3 +1,4 @@
 (sym_lib_table
-  (lib (name hdmizness)(type Legacy)(uri ${KIPRJMOD}/../lib/hdmizness.lib)(options "")(descr ""))
+  (version 7)
+  (lib (name "hdmizness")(type "KiCad")(uri "${KIPRJMOD}/../lib/hdmizness.kicad_sym")(options "")(descr ""))
 )
