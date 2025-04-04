@@ -14785,6 +14785,24 @@
 				)
 			)
 		)
+		(property "LCSC P/N" "C1511928"
+			(at 105.41 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFR P/N" "F1C100s"
+			(at 105.41 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "66"
 			(uuid "0d2d2059-d53b-45c6-8f6f-5715c16e4990")
 		)
@@ -15110,6 +15128,24 @@
 				(font
 					(size 1.27 1.27)
 				)
+			)
+		)
+		(property "LCSC P/N" "C1511928"
+			(at 271.78 203.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFR P/N" "F1C100s"
+			(at 271.78 203.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
 			)
 		)
 		(pin "43"
@@ -21471,7 +21507,7 @@
 				)
 			)
 		)
-		(property "LCSC P/N" "C305297"
+		(property "LCSC P/N" "C258090"
 			(at 100.33 220.98 0)
 			(effects
 				(font
@@ -21480,7 +21516,7 @@
 				(hide yes)
 			)
 		)
-		(property "MFR P/N" "WR04X2003FTL"
+		(property "MFR P/N" "RC-02W1003FT"
 			(at 100.33 220.98 0)
 			(effects
 				(font
@@ -22993,6 +23029,24 @@
 				)
 			)
 		)
+		(property "LCSC P/N" "C158099"
+			(at 40.64 123.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFR P/N" "FC-B1010RGBT-HG"
+			(at 40.64 123.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "e71d1bad-0866-4393-9afc-b01fb07e2afd")
 		)
@@ -24157,6 +24211,24 @@
 				(font
 					(size 1.27 1.27)
 				)
+			)
+		)
+		(property "LCSC P/N" "C369565"
+			(at 257.81 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFR P/N" "SiI9022A"
+			(at 257.81 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
 			)
 		)
 		(pin "4"
