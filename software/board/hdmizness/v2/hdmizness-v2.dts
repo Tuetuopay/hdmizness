@@ -8,6 +8,19 @@
 
 / {
 	model = "HDMIzness v2";
+
+	mclk: mclk {
+		compatible = "fixed-clock";
+		#clock-cells = <0>;
+		clock-frequency = <12288000>;
+	};
+};
+
+&pio {
+	sii_int_pins: sii-int-pins {
+		pins = "PE10";
+		function = "gpio_in";
+	};
 };
 
 &tcon0_out {
@@ -17,13 +30,33 @@
 	};
 };
 
+&i2s0 {
+	i2s0_port: port {
+		#address-cells = <1>;
+		#size-cells = <0>;
+
+		i2s0_out_hdmi: endpoint {
+			remote-endpoint = <&hdmi_bridge_audio_in>;
+			format = "i2s";
+			mclk-fs = <128>;
+		};
+	};
+};
+
+&link_codec {
+	sound-dai = <&hdmi_transmitter>;
+};
+
 &i2c0 {
-	hdmi-transmitter@39 {
+	hdmi_transmitter: hdmi-transmitter@39 {
 		compatible = "sil,sii9022";
 		reg = <0x39>;
 		reset-gpios = <&pio 4 9 GPIO_ACTIVE_LOW>; /* PE9 */
 
 		#sound-dai-cells = <0>;
+		sil,i2s-data-lanes = <0>;
+		clocks = <&mclk>;
+		clock-names = "mclk";
 
 		status = "okay";
 
@@ -35,6 +68,13 @@
 				reg = <0>;
 				hdmi_bridge_in: endpoint {
 					remote-endpoint = <&tcon0_out_hdmi>;
+				};
+			};
+
+			port@3 {
+				reg = <3>;
+				hdmi_bridge_audio_in: endpoint {
+					remote-endpoint = <&i2s0_out_hdmi>;
 				};
 			};
 		};

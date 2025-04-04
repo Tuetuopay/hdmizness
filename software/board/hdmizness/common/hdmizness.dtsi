@@ -59,11 +59,6 @@
 		function = "uart0";
 	};
 
-	i2s_pa_pins: i2s-pa-pins {
-		pins = "PA0", "PA1", "PA3";
-		function = "i2s";
-	};
-
 	led_pins: led-pins {
 		pins = "PF0", "PF1", "PF3";
 		function = "gpio_out";
@@ -135,5 +130,21 @@
 &tcon0 {
 	pinctrl-names = "default";
 	pinctrl-0 = <&lcd_rgb666_pins>;
+	status = "okay";
+};
+
+&i2s0 {
+	status = "okay";
+};
+
+&sound {
+	simple-audio-card,name = "HDMIzness";
+
+	/delete-property/ simple-audio-card,routing;
+
+	simple-audio-card,frame-master = <&dai_link_master>;
+	simple-audio-card,bitclock-master = <&dai_link_master>;
+	simple-audio-card,continuous-clock;
+
 	status = "okay";
 };

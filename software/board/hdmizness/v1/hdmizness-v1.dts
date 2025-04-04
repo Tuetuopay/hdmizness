@@ -26,8 +26,25 @@
 	};
 };
 
+&i2s0 {
+	i2s0_port: port {
+		#address-cells = <1>;
+		#size-cells = <0>;
+
+		i2s0_out_hdmi: endpoint {
+			remote-endpoint = <&hdmi_bridge_audio_in>;
+			format = "i2s";
+			mclk-fs = <128>;
+		};
+	};
+};
+
+&link_codec {
+	sound-dai = <&hdmi_transmitter>;
+};
+
 &i2c0 {
-	hdmi-transmitter@70 {
+	hdmi_transmitter: hdmi-transmitter@70 {
 		compatible = "nxp,tda998x";
 		reg = <0x70>;
 
@@ -50,6 +67,13 @@
 				reg = <0>;
 				hdmi_bridge_in: endpoint {
 					remote-endpoint = <&tcon0_out_hdmi>;
+				};
+			};
+
+			port@3 {
+				reg = <3>;
+				hdmi_bridge_audio_in: endpoint {
+					remote-endpoint = <&i2s0_out_hdmi>;
 				};
 			};
 		};
