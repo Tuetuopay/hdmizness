@@ -31,7 +31,7 @@ case "$1" in
 
 		echo Enabling the gadget
 		udc=$(ls /sys/class/udc | head -n 1)
-		if [ "$udc" -eq "" ]; then
+		if [ "$udc" = "" ]; then
 			echo Error: no UDC device found
 			exit 1
 		fi
