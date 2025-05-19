@@ -71,7 +71,7 @@
 
 &spi0 {
 	pinctrl-names = "default";
-	pinctrl-0 = <&spi0_pins_a>;
+	pinctrl-0 = <&spi0_pc_pins>;
 	status = "okay";
 
 	flash@0 {
