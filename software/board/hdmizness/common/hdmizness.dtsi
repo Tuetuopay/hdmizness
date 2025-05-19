@@ -123,6 +123,10 @@
 	status = "okay";
 };
 
+&fe0 {
+	status = "okay";
+};
+
 &de {
 	status = "okay";
 };
