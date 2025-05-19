@@ -1,10 +1,7 @@
 CONFIG_ARM=y
-CONFIG_SKIP_LOWLEVEL_INIT_ONLY=y
-CONFIG_SPL_SKIP_LOWLEVEL_INIT_ONLY=y
 CONFIG_SYS_DCACHE_OFF=y
 CONFIG_ARCH_SUNXI=y
-CONFIG_DEFAULT_DEVICE_TREE="suniv-f1c100s-licheepi-nano"
-CONFIG_SYS_PROMPT="~> "
+CONFIG_DEFAULT_DEVICE_TREE="hdmizness"
 CONFIG_SPL=y
 CONFIG_MACH_SUNIV=y
 CONFIG_DRAM_CLK=156
@@ -14,13 +11,11 @@ CONFIG_UART0_PORT_F=y
 CONFIG_SPL_SPI_SUNXI=y
 CONFIG_BOOTCOMMAND="gpio set PF3; setenv cpu F1C200s; setenv video 1280x720; if cmp.l 81700000 83700000 20; then setenv cpu F1C100s; setenv video 768x432; fi; setenv minor 0; for pin in 5 4 3; do setexpr minor $minor * 2; gpio input PE$pin; setexpr minor $minor + $?; done; setenv major 0; for pin in 2 1 0; do setexpr major $major * 2; gpio input PE${pin}; setexpr major $major + $?; done; if test $major -eq 1; then gpio clear PF0; else; gpio clear PF1; fi; echo CPU: ${cpu}; echo Hardware revision: v$major.$minor; setenv bootargs console=ttyS0,115200 ubi.mtd=1 ubi.block=0,rootfs root=/dev/ubiblock0_3 g_acm_ms.removable=1 video=HDMI-A-1:${video}@60 ${bootargs_extra}; sf probe 0 20000000; ubi part rootubi; ubi read ${kernel_addr_r} kernel; ubi read ${fdt_addr_r} dtb-v${major}; bootz ${kernel_addr_r} - ${fdt_addr_r}"
 CONFIG_LOG=y
-CONFIG_SPL_STACK=0x8000
-CONFIG_SYS_PBSIZE=1024
+CONFIG_SYS_PROMPT="~> "
 CONFIG_CMD_MTD=y
 CONFIG_MTDPARTS_DEFAULT="nor0:512k(uboot),-(rootubi)"
 CONFIG_CMD_UBI=y
 CONFIG_ENV_IS_IN_FAT=y
-# CONFIG_NET is not set
 # CONFIG_MMC is not set
 CONFIG_MTD=y
 CONFIG_SPI_FLASH_WINBOND=y
@@ -28,5 +23,4 @@ CONFIG_SPI_FLASH_WINBOND=y
 CONFIG_SPI_FLASH_MTD=y
 CONFIG_SPI=y
 # CONFIG_SYSRESET is not set
-CONFIG_REGEX=y
 CONFIG_GETOPT=y
