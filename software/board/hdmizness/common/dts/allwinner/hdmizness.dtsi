@@ -63,6 +63,11 @@
 		pins = "PF0", "PF1", "PF3";
 		function = "gpio_out";
 	};
+
+	i2c0_pe_pins: i2c0-pe-pins {
+		pins = "PE11", "PE12";
+		function = "i2c0";
+	};
 };
 
 &otg_sram {
@@ -71,7 +76,7 @@
 
 &spi0 {
 	pinctrl-names = "default";
-	pinctrl-0 = <&spi0_pins_a>;
+	pinctrl-0 = <&spi0_pc_pins>;
 	status = "okay";
 
 	flash@0 {
@@ -106,6 +111,8 @@
 };
 
 &i2c0 {
+	pinctrl-names = "default";
+	pinctrl-0 = <&i2c0_pe_pins>;
 	status = "okay";
 };
 
